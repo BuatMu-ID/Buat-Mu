@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Untukmu ❤️</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="experience">
+      <!-- =========================
+         1. OPENING
+    ========================== -->
+      <section class="opening">
+        <div class="container">
+          <p class="eyebrow">sesuatu untukmu</p>
+
+          <h1>
+            Ada sesuatu<br />
+            yang ingin kusampaikan.
+          </h1>
+
+          <p class="opening-subtitle">Luangkan sedikit waktumu untuk ini.</p>
+
+          <button class="start-button" id="startButton">Buka</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         2. PERSONAL REVEAL
+    ========================== -->
+      <section class="reveal hidden" id="reveal">
+        <div class="container">
+          <p class="eyebrow">untuk</p>
+
+          <h2 id="recipientName">Aisyah</h2>
+
+          <div class="divider"></div>
+
+          <p class="reveal-text">
+            Ada beberapa hal yang mungkin lebih mudah disampaikan lewat halaman
+            kecil ini.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+         3. MAIN MESSAGE
+    ========================== -->
+      <section class="message hidden" id="message">
+        <div class="container">
+          <p class="eyebrow">sebuah pesan</p>
+
+          <div class="message-card">
+            <p id="mainMessage">
+              Selamat ulang tahun, Aisyah. Semoga di umur yang baru ini, kamu
+              menemukan lebih banyak alasan untuk tersenyum. Semoga hal-hal baik
+              datang ke dalam hidupmu, satu per satu, di waktu yang tepat. Tetap
+              jadi dirimu sendiri.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         4. PHOTO
+    ========================== -->
+      <section class="photos hidden" id="photos">
+        <div class="container">
+          <p class="eyebrow">sedikit kenangan</p>
+
+          <h2>Beberapa momen.</h2>
+
+          <div class="photo-grid" id="photoGrid">
+            <!--
+            Foto akan dimasukkan
+            melalui JavaScript.
+          --></div>
+        </div>
+      </section>
+
+      <!-- =========================
+         5. CLOSING
+    ========================== -->
+      <section class="closing hidden" id="closing">
+        <div class="container">
+          <p class="closing-message" id="closingMessage">
+            Semoga hari ini menjadi salah satu hari yang kamu ingat dengan
+            senyum.
+          </p>
+
+          <div class="closing-divider"></div>
+
+          <p class="from">
+            Dengan tulus,<br />
+            <span id="senderName">Hakram</span>
+          </p>
+
+          <p class="brand">dibuat dengan ❤️ oleh Buatmu</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

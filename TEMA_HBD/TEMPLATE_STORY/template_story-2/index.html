@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>A Story For You</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main id="experience">
+      <!-- =========================
+         01. OPENING
+    ========================== -->
+
+      <section class="section active" id="opening">
+        <div class="content opening-content">
+          <p class="eyebrow">A STORY FOR YOU</p>
+
+          <h1>
+            If I could tell<br />
+            you one story...
+          </h1>
+
+          <p class="intro">mungkin aku akan memilih cerita yang satu ini.</p>
+
+          <button class="primary-btn" data-next>Begin</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         02. FOR YOU
+    ========================== -->
+
+      <section class="section" id="for-you">
+        <div class="content">
+          <p class="eyebrow">THIS ONE IS FOR YOU</p>
+
+          <h2>
+            Happy Birthday,<br />
+            <span id="recipient-name"> Aisyah </span>.
+          </h2>
+
+          <div class="divider"></div>
+
+          <p id="opening-message" class="story-text"></p>
+
+          <button class="text-btn" data-next>Turn the page →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         03. THAT ONE DAY
+    ========================== -->
+
+      <section class="section" id="that-day">
+        <div class="content story-layout">
+          <div class="story-heading">
+            <span class="chapter-number"> CHAPTER 01 </span>
+
+            <h2>
+              That<br />
+              one day.
+            </h2>
+          </div>
+
+          <div class="story-copy">
+            <p id="that-day-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         04. WHAT I REMEMBER
+    ========================== -->
+
+      <section class="section" id="remember">
+        <div class="content story-layout">
+          <div class="story-heading">
+            <span class="chapter-number"> CHAPTER 02 </span>
+
+            <h2>
+              What I<br />
+              remember.
+            </h2>
+          </div>
+
+          <div class="story-copy">
+            <p id="remember-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>Keep reading →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         05. LITTLE DETAILS
+    ========================== -->
+
+      <section class="section" id="details">
+        <div class="content">
+          <p class="eyebrow">CHAPTER 03</p>
+
+          <h2>
+            The little<br />
+            details.
+          </h2>
+
+          <div class="details-list">
+            <div class="detail">
+              <span>01</span>
+              <p id="detail-1"></p>
+            </div>
+
+            <div class="detail">
+              <span>02</span>
+              <p id="detail-2"></p>
+            </div>
+
+            <div class="detail">
+              <span>03</span>
+              <p id="detail-3"></p>
+            </div>
+
+            <div class="detail">
+              <span>04</span>
+              <p id="detail-4"></p>
+            </div>
+          </div>
+
+          <button class="text-btn" data-next>Next chapter →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         06. PHOTO JOURNAL
+    ========================== -->
+
+      <section class="section" id="journal">
+        <div class="content">
+          <p class="eyebrow">CHAPTER 04</p>
+
+          <h2>
+            Photo<br />
+            journal.
+          </h2>
+
+          <div class="photo-grid" id="photo-grid"></div>
+
+          <p class="journal-caption">Six little pieces of a story.</p>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         07. WHAT I NEVER SAID
+    ========================== -->
+
+      <section class="section" id="never-said">
+        <div class="content story-layout">
+          <div class="story-heading">
+            <span class="chapter-number"> CHAPTER 05 </span>
+
+            <h2>
+              What I<br />
+              never said.
+            </h2>
+          </div>
+
+          <div class="letter-card">
+            <p id="never-said-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         08. TODAY
+    ========================== -->
+
+      <section class="section" id="today">
+        <div class="content">
+          <p class="eyebrow">CHAPTER 06</p>
+
+          <h2>
+            And here<br />
+            we are.
+          </h2>
+
+          <div class="divider"></div>
+
+          <p id="today-text" class="today-text"></p>
+
+          <button class="text-btn" data-next>The last page →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         09. CLOSING
+    ========================== -->
+
+      <section class="section" id="closing">
+        <div class="content closing-content">
+          <p class="eyebrow">THE END OF THIS STORY</p>
+
+          <h2 id="closing-text">Happy Birthday.</h2>
+
+          <p id="closing-message" class="closing-message"></p>
+
+          <div class="signature">
+            With love,<br />
+
+            <span id="sender-name"> Hakram </span>
+          </div>
+
+          <div class="closing-line"></div>
+
+          <p class="small-text">Some stories are worth keeping.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+    <nav class="navigation">
+      <button id="prev-btn" aria-label="Previous section">←</button>
+
+      <div class="progress">
+        <span id="current-number"> 01 </span>
+
+        <span class="progress-line"></span>
+
+        <span id="total-number"> 09 </span>
+      </div>
+
+      <button id="next-btn" aria-label="Next section">→</button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

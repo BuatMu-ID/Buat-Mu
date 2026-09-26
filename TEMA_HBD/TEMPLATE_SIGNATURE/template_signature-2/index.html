@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>A Birthday Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+       BACKGROUND
+  ========================== -->
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <!-- =========================
+       EXPERIENCE
+  ========================== -->
+
+    <main id="experience">
+      <!-- =========================
+         01. WELCOME
+    ========================== -->
+
+      <section class="section active" id="welcome">
+        <div class="content">
+          <p class="eyebrow">A SPECIAL EXPERIENCE</p>
+
+          <h1>
+            This was made<br />
+            for you.
+          </h1>
+
+          <p class="intro">
+            Ada beberapa hal kecil di dalamnya. Tapi kamu harus membukanya satu
+            per satu.
+          </p>
+
+          <button class="primary-btn" id="start-btn">Enter</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         02. UNLOCK
+    ========================== -->
+
+      <section class="section" id="unlock">
+        <div class="content">
+          <p class="eyebrow">SOMETHING IS WAITING</p>
+
+          <div class="lock-icon">✦</div>
+
+          <h2>
+            Ready,<br />
+            <span id="recipient-name"> Aisyah </span>?
+          </h2>
+
+          <p class="unlock-text">
+            Klik tombol di bawah untuk membuka sesuatu yang memang dibuat khusus
+            untukmu.
+          </p>
+
+          <button class="primary-btn" id="unlock-btn">Unlock</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         03. MESSAGE
+    ========================== -->
+
+      <section class="section" id="message">
+        <div class="content">
+          <p class="eyebrow">FIRST THING</p>
+
+          <h2>
+            A message<br />
+            for you.
+          </h2>
+
+          <div class="message-card">
+            <p id="message-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         04. CHOOSE MEMORY
+    ========================== -->
+
+      <section class="section" id="choose-memory">
+        <div class="content">
+          <p class="eyebrow">CHOOSE ONE</p>
+
+          <h2>
+            Which part<br />
+            do you want to see?
+          </h2>
+
+          <div class="memory-options">
+            <button class="memory-option" data-memory="beginning">
+              <span> 01 </span>
+
+              <strong> The Beginning </strong>
+
+              <small> Where it started </small>
+            </button>
+
+            <button class="memory-option" data-memory="moment">
+              <span> 02 </span>
+
+              <strong> The Moment </strong>
+
+              <small> A moment worth remembering </small>
+            </button>
+
+            <button class="memory-option" data-memory="little-things">
+              <span> 03 </span>
+
+              <strong> The Little Things </strong>
+
+              <small> Things that stayed </small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         05. MEMORY REVEAL
+    ========================== -->
+
+      <section class="section" id="memory-reveal">
+        <div class="content">
+          <p class="eyebrow" id="memory-category">THE BEGINNING</p>
+
+          <h2 id="memory-title">
+            It started<br />
+            somewhere.
+          </h2>
+
+          <div class="reveal-card">
+            <p id="memory-content"></p>
+          </div>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         06. PHOTO JOURNEY
+    ========================== -->
+
+      <section class="section" id="photos">
+        <div class="content">
+          <p class="eyebrow">THE PHOTO JOURNEY</p>
+
+          <h2>
+            Moments<br />
+            we keep.
+          </h2>
+
+          <div class="photo-stage" id="photo-stage">
+            <div class="photo-counter">
+              <span id="photo-current"> 01 </span>
+
+              <span>/</span>
+
+              <span id="photo-total"> 08 </span>
+            </div>
+
+            <div class="photo-frame">
+              <img id="journey-photo" src="" alt="Memory" />
+            </div>
+
+            <p id="photo-caption" class="photo-caption"></p>
+
+            <div class="photo-controls">
+              <button id="photo-prev" aria-label="Previous photo">←</button>
+
+              <button id="photo-next" aria-label="Next photo">→</button>
+            </div>
+          </div>
+
+          <button class="text-btn" data-next>Continue →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         07. LETTER
+    ========================== -->
+
+      <section class="section" id="letter">
+        <div class="content">
+          <p class="eyebrow">SOMETHING I WANTED TO SAY</p>
+
+          <h2>
+            A letter<br />
+            for you.
+          </h2>
+
+          <div class="letter-card">
+            <p id="letter-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>One more thing →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         08. FINAL QUESTION
+    ========================== -->
+
+      <section class="section" id="question">
+        <div class="content">
+          <p class="eyebrow">BEFORE YOU GO</p>
+
+          <h2>
+            Can you<br />
+            promise me one thing?
+          </h2>
+
+          <p class="question-text">
+            Jangan lupa untuk menikmati perjalananmu sendiri.
+          </p>
+
+          <button class="primary-btn" id="promise-btn">I Promise</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         09. FINAL REVEAL
+    ========================== -->
+
+      <section class="section" id="final-reveal">
+        <div class="content">
+          <p class="eyebrow">YOUR FINAL SURPRISE</p>
+
+          <div class="final-symbol" id="final-symbol">✦</div>
+
+          <h2 id="final-title">Happy Birthday.</h2>
+
+          <p id="final-message" class="final-message"></p>
+
+          <button class="text-btn" data-next>Finish →</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         10. CLOSING
+    ========================== -->
+
+      <section class="section" id="closing">
+        <div class="content closing-content">
+          <p class="eyebrow">MADE ESPECIALLY FOR YOU</p>
+
+          <h2>
+            The end<br />
+            of this little journey.
+          </h2>
+
+          <div class="divider"></div>
+
+          <p id="closing-text" class="closing-text"></p>
+
+          <div class="signature">
+            With love,<br />
+
+            <span id="sender-name"> Hakram </span>
+          </div>
+
+          <p class="small-text">Every little detail was made for you.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+    <nav class="navigation">
+      <button id="prev-btn" aria-label="Previous">←</button>
+
+      <div class="progress">
+        <span id="current-number"> 01 </span>
+
+        <span class="progress-line"></span>
+
+        <span id="total-number"> 10 </span>
+      </div>
+
+      <button id="next-btn" aria-label="Next">→</button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

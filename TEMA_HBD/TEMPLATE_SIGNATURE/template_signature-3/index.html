@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>A Gift For You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="experience">
+      <!-- LOADING -->
+      <section class="screen loading-screen active" id="loadingScreen">
+        <div class="loading-icon">
+          <span>✦</span>
+        </div>
+
+        <p class="loading-title">
+          Preparing something<br />
+          for you...
+        </p>
+
+        <div class="loading-line">
+          <div class="loading-progress"></div>
+        </div>
+
+        <p class="loading-small">just a little moment</p>
+      </section>
+
+      <!-- GIFT -->
+      <section class="screen gift-screen" id="giftScreen">
+        <div class="gift-background-glow"></div>
+
+        <div class="gift-heading">
+          <span>someone sent you</span>
+          <strong>a little something</strong>
+        </div>
+
+        <div class="gift-container" id="giftContainer">
+          <div class="gift-shadow"></div>
+
+          <div class="gift-box">
+            <div class="gift-lid">
+              <div class="ribbon-horizontal"></div>
+            </div>
+
+            <div class="gift-body">
+              <div class="ribbon-vertical"></div>
+            </div>
+
+            <div class="bow">
+              <span class="bow-left"></span>
+              <span class="bow-right"></span>
+              <span class="bow-center"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gift-hint">
+          <span class="hint-arrow">↑</span>
+          <span>Tap the gift to open</span>
+        </div>
+      </section>
+
+      <!-- REVEAL -->
+      <section class="screen reveal-screen" id="revealScreen">
+        <div class="reveal-wrapper">
+          <p class="eyebrow">A LITTLE SURPRISE</p>
+
+          <h1>
+            This is for you,
+            <span id="recipientReveal"></span>.
+          </h1>
+
+          <div class="reveal-card">
+            <div class="reveal-photo">
+              <img src="assets/photos/photo-1.jpg" alt="Memory" />
+            </div>
+
+            <div class="reveal-content">
+              <p class="from">From <strong id="senderReveal"></strong></p>
+
+              <p class="message" id="mainMessage"></p>
+
+              <button class="primary-button" id="continueButton">
+                There's more
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEMORY -->
+      <section class="screen memory-screen" id="memoryScreen">
+        <div class="content">
+          <p class="eyebrow">ONE MEMORY</p>
+
+          <h2>
+            Some moments<br />
+            deserve to stay.
+          </h2>
+
+          <div class="memory-card">
+            <div class="memory-number">01</div>
+
+            <p id="memoryText"></p>
+
+            <div class="memory-date" id="memoryDate"></div>
+          </div>
+
+          <button class="primary-button" id="memoryButton">
+            Keep going
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- PHOTO JOURNEY -->
+      <section class="screen photo-screen" id="photoScreen">
+        <div class="content photo-content">
+          <p class="eyebrow">OUR LITTLE JOURNEY</p>
+
+          <h2>
+            A few moments<br />
+            worth remembering.
+          </h2>
+
+          <div class="photo-stage">
+            <button
+              class="photo-control left"
+              id="previousPhoto"
+              aria-label="Previous photo"
+            >
+              ←
+            </button>
+
+            <div class="photo-frame">
+              <img id="journeyPhoto" src="" alt="Photo memory" />
+
+              <div class="photo-overlay">
+                <span id="photoCounter"></span>
+              </div>
+            </div>
+
+            <button
+              class="photo-control right"
+              id="nextPhoto"
+              aria-label="Next photo"
+            >
+              →
+            </button>
+          </div>
+
+          <p class="photo-caption" id="photoCaption"></p>
+
+          <button class="primary-button" id="photoContinue">
+            One more thing
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- LETTER -->
+      <section class="screen letter-screen" id="letterScreen">
+        <div class="content">
+          <p class="eyebrow">A LETTER</p>
+
+          <div class="letter-paper">
+            <p class="letter-greeting">For you,</p>
+
+            <p id="letterText"></p>
+
+            <p class="letter-signature">— <span id="letterSender"></span></p>
+          </div>
+
+          <button class="primary-button" id="letterButton">
+            There's one last thing
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- FINAL SURPRISE -->
+      <section class="screen final-screen" id="finalScreen">
+        <div class="final-glow"></div>
+
+        <div class="final-content">
+          <div class="final-icon">✦</div>
+
+          <p class="eyebrow">ONE LAST SURPRISE</p>
+
+          <h2>
+            Open this<br />
+            when you're ready.
+          </h2>
+
+          <button class="unlock-button" id="unlockButton">
+            <span>Unlock</span>
+            <span>♡</span>
+          </button>
+
+          <div class="final-message" id="finalMessage">
+            <p></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="screen closing-screen" id="closingScreen">
+        <div class="closing-content">
+          <div class="closing-symbol">♡</div>
+
+          <p class="eyebrow">THAT'S ALL</p>
+
+          <h2 id="closingTitle">Until the next story.</h2>
+
+          <p id="closingText"></p>
+
+          <div class="closing-from">
+            With love,<br />
+            <strong id="closingSender"></strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- NAVIGATION -->
+      <div class="navigation" id="navigation">
+        <button id="prevSection" aria-label="Previous">←</button>
+
+        <div class="section-progress">
+          <span id="currentSection">01</span>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span id="totalSection">07</span>
+        </div>
+
+        <button id="nextSection" aria-label="Next">→</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

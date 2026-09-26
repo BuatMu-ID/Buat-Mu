@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>For You</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+       OPENING
+  ========================== -->
+    <main id="experience">
+      <section class="section active" id="opening">
+        <div class="content opening-content">
+          <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+          <h1>
+            There's something<br />
+            I'd like to give you.
+          </h1>
+
+          <p class="opening-text">
+            Bukan sesuatu yang besar.<br />
+            Hanya sebuah momen kecil untuk hari spesialmu.
+          </p>
+
+          <button class="primary-btn" data-next>Open</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         BIRTHDAY REVEAL
+    ========================== -->
+      <section class="section" id="reveal">
+        <div class="content reveal-content">
+          <p class="eyebrow">TODAY IS YOUR DAY</p>
+
+          <h2>
+            Happy Birthday,<br />
+            <span class="recipient-name">Aisyah</span>
+          </h2>
+
+          <div class="divider"></div>
+
+          <p class="reveal-text">
+            Hari ini mungkin hanya terlihat seperti satu tanggal biasa. Tapi
+            hari ini adalah alasan untuk merayakan seseorang yang berharga.
+          </p>
+
+          <button class="text-btn" data-next>Continue</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         MESSAGE
+    ========================== -->
+      <section class="section" id="message">
+        <div class="content">
+          <p class="eyebrow">A MESSAGE FOR YOU</p>
+
+          <h2>For you.</h2>
+
+          <div class="message-card">
+            <p id="message-text"></p>
+          </div>
+
+          <button class="text-btn" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         PHOTO
+    ========================== -->
+      <section class="section photo-section" id="photo">
+        <div class="content">
+          <p class="eyebrow">ONE SPECIAL MOMENT</p>
+
+          <div class="photo-frame">
+            <img id="main-photo" src="" alt="A special memory" />
+          </div>
+
+          <p class="photo-caption">One little memory worth keeping.</p>
+
+          <button class="text-btn" data-next>Continue</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         WISH
+    ========================== -->
+      <section class="section" id="wish">
+        <div class="content">
+          <p class="eyebrow">MY WISH FOR YOU</p>
+
+          <h2>
+            I hope this year<br />
+            is kind to you.
+          </h2>
+
+          <div class="divider"></div>
+
+          <p id="wish-text" class="wish-text"></p>
+
+          <button class="text-btn" data-next>One last thing</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         CLOSING
+    ========================== -->
+      <section class="section" id="closing">
+        <div class="content closing-content">
+          <p class="eyebrow">FROM SOMEONE WHO CARES</p>
+
+          <h2 id="closing-text">Happy Birthday.</h2>
+
+          <p class="sender">
+            With love,<br />
+            <span id="sender-name">Hakram</span>
+          </p>
+
+          <div class="closing-line"></div>
+
+          <p class="small-text">This little moment was made just for you.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <button id="prev-btn" aria-label="Previous section">←</button>
+
+      <div class="progress">
+        <span id="current-number">01</span>
+        <span class="progress-line"></span>
+        <span id="total-number">06</span>
+      </div>
+
+      <button id="next-btn" aria-label="Next section">→</button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,467 @@
+/* =================================
+   RESET
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: #f7f4ef;
+  color: #242424;
+
+  overflow-x: hidden;
+}
+
+/* =================================
+   MAIN
+================================= */
+
+.experience {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =================================
+   OPENING SCREEN
+================================= */
+
+.opening-screen {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 30px;
+
+  background: radial-gradient(
+    circle at top,
+    #fffdf9 0%,
+    #f7f4ef 60%,
+    #eee9e1 100%
+  );
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.opening-screen.hide {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* =================================
+   OPENING CONTENT
+================================= */
+
+.opening-content {
+  width: 100%;
+  max-width: 600px;
+
+  animation: openingAppear 1.2s ease;
+}
+
+.small-label {
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  color: #8c8176;
+
+  margin-bottom: 25px;
+}
+
+.opening-content h1 {
+  font-family: Georgia, serif;
+
+  font-size: clamp(48px, 9vw, 90px);
+
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  margin-bottom: 30px;
+}
+
+.opening-content h1 span {
+  font-style: italic;
+  color: #8f6258;
+}
+
+.opening-description {
+  max-width: 420px;
+
+  margin: 0 auto 40px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: #756d66;
+}
+
+/* =================================
+   BUTTON
+================================= */
+
+.open-button {
+  border: none;
+
+  padding: 16px 32px;
+
+  border-radius: 100px;
+
+  background: #292522;
+
+  color: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+
+  background: #51443d;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.open-button:active {
+  transform: scale(0.96);
+}
+
+/* =================================
+   SURPRISE CONTENT
+================================= */
+
+.surprise-content {
+  min-height: 100vh;
+
+  display: none;
+
+  padding: 100px 20px 80px;
+
+  background: #f7f4ef;
+}
+
+.surprise-content.show {
+  display: block;
+
+  animation: contentAppear 1s ease;
+}
+
+/* =================================
+   CONTENT WRAPPER
+================================= */
+
+.content-wrapper {
+  width: 100%;
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.content-label {
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  color: #9b8e83;
+
+  margin-bottom: 12px;
+}
+
+.content-wrapper h2 {
+  font-family: Georgia, serif;
+
+  font-size: clamp(40px, 8vw, 70px);
+
+  font-weight: 400;
+
+  margin-bottom: 40px;
+}
+
+/* =================================
+   PHOTO
+================================= */
+
+.photo-container {
+  width: min(100%, 430px);
+
+  aspect-ratio: 4 / 5;
+
+  margin: 0 auto 50px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background: #ddd;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.7s ease;
+}
+
+.photo-container:hover img {
+  transform: scale(1.03);
+}
+
+/* =================================
+   MESSAGE
+================================= */
+
+.message-card {
+  width: 100%;
+
+  padding: 40px 30px;
+
+  background: #fffdf9;
+
+  border: 1px solid #ebe5dc;
+
+  border-radius: 8px;
+
+  text-align: left;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+}
+
+.message {
+  font-family: Georgia, serif;
+
+  font-size: 19px;
+
+  line-height: 1.9;
+
+  color: #39332f;
+
+  white-space: pre-line;
+}
+
+/* =================================
+   SIGNATURE
+================================= */
+
+.signature {
+  margin-top: 35px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #e9e2da;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.signature span {
+  font-size: 12px;
+
+  color: #91857b;
+}
+
+.signature strong {
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  font-weight: 400;
+
+  color: #74534b;
+}
+
+/* =================================
+   CLOSING
+================================= */
+
+.closing {
+  padding-top: 100px;
+
+  text-align: center;
+}
+
+.heart {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #e9d8d1;
+
+  color: #80584f;
+
+  font-size: 20px;
+
+  animation: heartbeat 2s infinite;
+}
+
+.closing p {
+  max-width: 400px;
+
+  margin: 0 auto 30px;
+
+  font-family: Georgia, serif;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  color: #665b54;
+}
+
+.brand {
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #a0968d;
+
+  text-transform: uppercase;
+}
+
+.brand b {
+  color: #72534b;
+}
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes openingAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.08);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.08);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+  .opening-screen {
+    padding: 25px;
+  }
+
+  .opening-content h1 {
+    font-size: 55px;
+  }
+
+  .opening-description {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .open-button {
+    width: 100%;
+
+    max-width: 260px;
+  }
+
+  .surprise-content {
+    padding: 70px 18px 60px;
+  }
+
+  .content-wrapper h2 {
+    margin-bottom: 30px;
+  }
+
+  .photo-container {
+    margin-bottom: 35px;
+  }
+
+  .message-card {
+    padding: 30px 22px;
+  }
+
+  .message {
+    font-size: 17px;
+
+    line-height: 1.8;
+  }
+
+  .closing {
+    padding-top: 70px;
+  }
+}

@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>An Experience Made For You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="experience">
+      <!-- =========================
+         01. OPENING
+    ========================== -->
+
+      <section class="screen opening active" id="opening">
+        <div class="opening-content">
+          <p class="eyebrow">A SPECIAL EXPERIENCE</p>
+
+          <h1>
+            This was made<br />
+            <em>for you.</em>
+          </h1>
+
+          <p class="opening-subtitle">
+            Ada sesuatu yang ingin disampaikan. Tapi kali ini, biarkan kamu
+            menemukannya sendiri.
+          </p>
+
+          <button class="main-button" id="beginButton">Open Experience</button>
+        </div>
+      </section>
+
+      <!-- =========================
+         02. INTERACTIVE REVEAL
+    ========================== -->
+
+      <section class="screen reveal-screen" id="reveal">
+        <div class="reveal-content">
+          <p class="eyebrow">TAKE A MOMENT</p>
+
+          <h2>
+            Ada sesuatu<br />
+            di balik ini.
+          </h2>
+
+          <p class="reveal-description">
+            Tekan tombol di bawah dan lihat apa yang menunggumu.
+          </p>
+
+          <button class="reveal-button" id="revealButton">
+            <span>Reveal</span>
+          </button>
+
+          <div class="hidden-message" id="hiddenMessage">
+            <p>
+              <span id="recipientName">...</span>, mungkin kamu belum tahu...
+            </p>
+
+            <strong> kamu adalah bagian penting dari cerita ini. </strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         03. PERSONAL MESSAGE
+    ========================== -->
+
+      <section class="screen message-screen" id="message">
+        <div class="message-content">
+          <p class="eyebrow">A MESSAGE FOR YOU</p>
+
+          <h2>
+            Untuk
+            <span id="messageRecipient">...</span>.
+          </h2>
+
+          <div class="message-line"></div>
+
+          <p id="mainMessage"></p>
+        </div>
+      </section>
+
+      <!-- =========================
+         04. MEMORY JOURNEY
+    ========================== -->
+
+      <section class="screen journey-screen" id="journey">
+        <div class="journey-container">
+          <div class="journey-header">
+            <p class="eyebrow">MEMORY JOURNEY</p>
+
+            <h2>
+              Mari kembali<br />
+              sebentar.
+            </h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-number">01</span>
+
+              <div>
+                <h3 id="memoryTitle1">The Beginning</h3>
+
+                <p id="memory1"></p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-number">02</span>
+
+              <div>
+                <h3 id="memoryTitle2">The Moment</h3>
+
+                <p id="memory2"></p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-number">03</span>
+
+              <div>
+                <h3 id="memoryTitle3">The Little Things</h3>
+
+                <p id="memory3"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         05. STORY
+    ========================== -->
+
+      <section class="screen story-screen" id="story">
+        <div class="story-content">
+          <p class="eyebrow">THE STORY</p>
+
+          <h2 id="storyTitle">
+            Some stories<br />
+            are worth keeping.
+          </h2>
+
+          <div class="story-divider"></div>
+
+          <p id="storyText"></p>
+        </div>
+      </section>
+
+      <!-- =========================
+         06. INTERACTIVE MOMENT
+    ========================== -->
+
+      <section class="screen choice-screen" id="choice">
+        <div class="choice-content">
+          <p class="eyebrow">ONE LITTLE QUESTION</p>
+
+          <h2>
+            Kalau harus memilih<br />
+            satu kenangan...
+          </h2>
+
+          <p class="choice-description">Mana yang paling ingin kamu simpan?</p>
+
+          <div class="choices">
+            <button class="choice-button" data-choice="first">
+              The Beginning
+            </button>
+
+            <button class="choice-button" data-choice="moment">
+              The Moment
+            </button>
+
+            <button class="choice-button" data-choice="little">
+              The Little Things
+            </button>
+          </div>
+
+          <div class="choice-result" id="choiceResult"></div>
+        </div>
+      </section>
+
+      <!-- =========================
+         07. PHOTO EXPERIENCE
+    ========================== -->
+
+      <section class="screen gallery-screen" id="gallery">
+        <div class="gallery-header">
+          <p class="eyebrow">MEMORIES</p>
+
+          <h2>
+            Moments worth<br />
+            remembering.
+          </h2>
+        </div>
+
+        <div class="gallery" id="galleryContainer"></div>
+      </section>
+
+      <!-- =========================
+         08. PERSONAL LETTER
+    ========================== -->
+
+      <section class="screen letter-screen" id="letter">
+        <div class="letter-card">
+          <p class="eyebrow">A PERSONAL LETTER</p>
+
+          <h2>
+            Dear
+            <span id="letterRecipient">...</span>,
+          </h2>
+
+          <p class="letter-text" id="letterText"></p>
+
+          <div class="signature">
+            <span>With love,</span>
+
+            <strong id="senderName"> ... </strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         09. SPECIAL REVEAL
+    ========================== -->
+
+      <section class="screen special-screen" id="special">
+        <div class="special-content">
+          <p class="eyebrow">ONE LAST THING</p>
+
+          <h2>
+            You are<br />
+            <em>special.</em>
+          </h2>
+
+          <button class="special-button" id="specialButton">
+            Tap to reveal
+          </button>
+
+          <div class="special-message" id="specialMessage">
+            <p id="specialText"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         10. FINAL
+    ========================== -->
+
+      <section class="screen final-screen" id="final">
+        <div class="final-content">
+          <p class="eyebrow">THE END</p>
+
+          <h2>
+            Some moments<br />
+            become memories.
+          </h2>
+
+          <p id="finalMessage"></p>
+
+          <div class="final-divider"></div>
+
+          <p class="made-for">
+            An experience made for
+            <strong id="finalRecipient"> ... </strong>
+          </p>
+
+          <p class="from">
+            From
+            <strong id="finalSender"> ... </strong>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+    <div class="navigation">
+      <button
+        class="nav-button"
+        id="previousButton"
+        aria-label="Previous section"
+      >
+        ←
+      </button>
+
+      <div class="progress">
+        <span id="currentProgress"> 01 </span>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <span>10</span>
+      </div>
+
+      <button class="nav-button" id="nextButton" aria-label="Next section">
+        →
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
