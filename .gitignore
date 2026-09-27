@@ -1,0 +1,12 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Private Buatmu business documents
+BUATMU — Digital Surprise Business Playbook.pdf
+BUATMU-PRODUK_SPECIFICATION.docx
+BUATMU_Master-foundation V.3.docx
