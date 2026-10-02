@@ -1,0 +1,181 @@
+/* =========================================================
+   BUATMU — SWEET
+   THEME: SOFT
+   ========================================================= */
+
+body.theme-soft {
+  --bg: #f8f4ef;
+  --bg-soft: #f2ebe3;
+
+  --card: rgba(255, 255, 255, 0.72);
+  --card-soft: rgba(255, 255, 255, 0.52);
+
+  --cream: #3f3832;
+  --white: #ffffff;
+
+  --muted: #887d73;
+  --muted-soft: #a59a90;
+
+  --accent: #c99a7b;
+  --accent-soft: rgba(201, 154, 123, 0.16);
+  --accent-glow: rgba(201, 154, 123, 0.28);
+
+  --border: rgba(80, 60, 45, 0.12);
+
+  --shadow: 0 20px 60px rgba(100, 76, 58, 0.1);
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+body.theme-soft {
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(231, 203, 187, 0.45),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(246, 222, 203, 0.42),
+      transparent 30%
+    ),
+    var(--bg);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+body.theme-soft .opening-card,
+body.theme-soft .letter-card,
+body.theme-soft .ending-card,
+body.theme-soft .photo-card {
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+body.theme-soft .opening-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(250, 243, 236, 0.62)
+  );
+}
+
+/* =========================================================
+   LETTER
+   ========================================================= */
+
+body.theme-soft .letter-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.84),
+    rgba(250, 243, 236, 0.68)
+  );
+}
+
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+body.theme-soft .ending-card {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(231, 203, 187, 0.4),
+      transparent 45%
+    ),
+    rgba(255, 255, 255, 0.68);
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+body.theme-soft .photo-card {
+  background: rgba(255, 255, 255, 0.68);
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+body.theme-soft .btn {
+  color: #fffaf5;
+
+  background: #3f3832;
+
+  box-shadow: 0 10px 30px rgba(63, 56, 50, 0.16);
+}
+
+body.theme-soft .btn:hover {
+  background: #a97859;
+}
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+body.theme-soft .audio-button {
+  color: var(--cream);
+
+  background: rgba(255, 255, 255, 0.78);
+
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   ORBS
+   ========================================================= */
+
+body.theme-soft .orb-1 {
+  background: rgba(231, 203, 187, 0.55);
+}
+
+body.theme-soft .orb-2 {
+  background: rgba(246, 222, 203, 0.48);
+}
+
+body.theme-soft .orb-3 {
+  background: rgba(214, 190, 170, 0.32);
+}
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+body.theme-soft .particle {
+  background: rgba(90, 70, 55, 0.28);
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+body.theme-soft .navigation {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+body.theme-soft .letter-message,
+body.theme-soft .letter-greeting,
+body.theme-soft .letter-signature,
+body.theme-soft .ending-from {
+  color: var(--cream);
+}

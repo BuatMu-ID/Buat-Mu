@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Buatmu — Story</title>
+
+    <style>
+      /* =========================================================
+         BUATMU STORY MASTER
+         ========================================================= */
+
+      :root {
+        --bg: #0d0d10;
+        --bg-soft: #15151a;
+        --card: #1b1b21;
+        --card-soft: #202026;
+        --cream: #f7f1e7;
+        --white: #fffdf9;
+        --muted: #aaa5a0;
+        --muted-2: #77736f;
+
+        --accent: #d8b77a;
+        --accent-soft: rgba(216, 183, 122, 0.15);
+        --accent-glow: rgba(216, 183, 122, 0.28);
+
+        --line: rgba(255, 255, 255, 0.08);
+
+        --radius: 26px;
+        --max-width: 1050px;
+      }
+
+      /* =========================================================
+         RESET
+         ========================================================= */
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--cream);
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+        transition:
+          background 0.8s ease,
+          color 0.8s ease;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* =========================================================
+         AMBIENT BACKGROUND
+         ========================================================= */
+
+      .ambient {
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+        overflow: hidden;
+        pointer-events: none;
+
+        background:
+          radial-gradient(
+            circle at 50% 0%,
+            var(--accent-soft),
+            transparent 38%
+          ),
+          var(--bg);
+
+        transition: background 0.8s ease;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.22;
+        animation: floatOrb 14s ease-in-out infinite alternate;
+      }
+
+      .orb-1 {
+        width: 420px;
+        height: 420px;
+        background: var(--orb-1);
+        top: -180px;
+        left: -120px;
+      }
+
+      .orb-2 {
+        width: 350px;
+        height: 350px;
+        background: var(--orb-2);
+        right: -130px;
+        top: 35%;
+        animation-delay: -5s;
+      }
+
+      .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: var(--orb-3);
+        bottom: -130px;
+        left: 35%;
+        animation-delay: -9s;
+      }
+
+      @keyframes floatOrb {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        to {
+          transform: translate3d(35px, -25px, 0) scale(1.08);
+        }
+      }
+
+      /* =========================================================
+         NOISE
+         ========================================================= */
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        pointer-events: none;
+        opacity: var(--noise-opacity);
+
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      }
+
+      /* =========================================================
+         PARTICLES
+         ========================================================= */
+
+      #particles {
+        position: fixed;
+        inset: 0;
+        z-index: -5;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: var(--particle);
+        animation: particleFloat linear infinite;
+      }
+
+      @keyframes particleFloat {
+        from {
+          transform: translateY(110vh);
+          opacity: 0;
+        }
+
+        15% {
+          opacity: 0.7;
+        }
+
+        80% {
+          opacity: 0.4;
+        }
+
+        to {
+          transform: translateY(-10vh);
+          opacity: 0;
+        }
+      }
+
+      /* =========================================================
+         APP
+         ========================================================= */
+
+      .app {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .screen {
+        display: none;
+        min-height: 100vh;
+        padding: 80px 24px 130px;
+        animation: screenIn 0.8s ease both;
+      }
+
+      .screen.active {
+        display: flex;
+      }
+
+      .screen-inner {
+        width: min(100%, var(--max-width));
+        margin: auto;
+      }
+
+      @keyframes screenIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================================
+         TYPOGRAPHY
+         ========================================================= */
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(42px, 7vw, 82px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+      }
+
+      .section-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        font-size: clamp(36px, 5vw, 62px);
+        line-height: 1;
+        margin-bottom: 18px;
+      }
+
+      .description {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      /* =========================================================
+         BUTTON
+         ========================================================= */
+
+      .btn {
+        border: 1px solid var(--button-border);
+        background: var(--button-bg);
+        color: var(--button-text);
+
+        padding: 14px 22px;
+        border-radius: 999px;
+        cursor: pointer;
+
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        background: var(--button-hover);
+        border-color: var(--button-border-hover);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* =========================================================
+         OPENING
+         ========================================================= */
+
+      #opening {
+        align-items: center;
+        text-align: center;
+      }
+
+      .opening-content {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .opening-mark {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 35px;
+
+        border: 1px solid var(--accent-border);
+        border-radius: 50%;
+
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+
+      .opening-mark::before {
+        content: "";
+        position: absolute;
+        inset: 9px;
+        border: 1px solid var(--accent-border-soft);
+        border-radius: 50%;
+      }
+
+      .opening-mark span {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 22px var(--accent);
+      }
+
+      .opening-name {
+        margin: 24px 0 42px;
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(28px, 5vw, 52px);
+        font-weight: 400;
+      }
+
+      .opening-subtitle {
+        color: var(--muted);
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* =========================================================
+         BIRTHDAY REVEAL
+         ========================================================= */
+
+      .reveal-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .reveal-image {
+        aspect-ratio: 4 / 5;
+        border-radius: var(--radius);
+        overflow: hidden;
+
+        background: var(--card);
+        border: 1px solid var(--line);
+
+        position: relative;
+        box-shadow: var(--card-shadow);
+      }
+
+      .reveal-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .reveal-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+          180deg,
+          transparent 50%,
+          rgba(0, 0, 0, 0.42)
+        );
+      }
+
+      .reveal-copy {
+        padding: 20px 0;
+      }
+
+      .reveal-date {
+        color: var(--accent);
+        margin: 20px 0;
+
+        font-size: 13px;
+        letter-spacing: 0.1em;
+      }
+
+      .reveal-message {
+        color: var(--muted);
+        line-height: 1.8;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+         MEMORIES
+         ========================================================= */
+
+      .memory-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: end;
+        margin-bottom: 35px;
+      }
+
+      .memory-counter {
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .memory-stage {
+        position: relative;
+      }
+
+      .memory-card {
+        display: none;
+        overflow: hidden;
+
+        border-radius: var(--radius);
+        background: var(--card);
+        border: 1px solid var(--line);
+
+        animation: memoryIn 0.55s ease both;
+        box-shadow: var(--card-shadow);
+      }
+
+      .memory-card.active {
+        display: block;
+      }
+
+      .memory-image {
+        width: 100%;
+        height: min(68vh, 650px);
+        background: var(--photo-bg);
+        overflow: hidden;
+      }
+
+      .memory-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .memory-caption {
+        padding: 28px 30px 32px;
+      }
+
+      .memory-caption p {
+        color: var(--muted);
+        line-height: 1.75;
+        white-space: pre-line;
+      }
+
+      .memory-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .circle-btn {
+        width: 48px;
+        height: 48px;
+
+        border: 1px solid var(--line);
+        border-radius: 50%;
+
+        background: var(--circle-bg);
+        color: var(--cream);
+
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .circle-btn:hover {
+        border-color: var(--accent-border-hover);
+        transform: translateY(-2px);
+      }
+
+      .memory-empty {
+        padding: 70px 30px;
+
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+
+        background: var(--empty-bg);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @keyframes memoryIn {
+        from {
+          opacity: 0;
+          transform: scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* =========================================================
+         OUR STORY
+         ========================================================= */
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 42px;
+      }
+
+      .story-card {
+        min-height: 300px;
+        padding: 30px;
+
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+
+        background: var(--story-card-bg);
+
+        position: relative;
+        overflow: hidden;
+
+        box-shadow: var(--card-shadow);
+      }
+
+      .story-card::before {
+        content: "";
+
+        position: absolute;
+        width: 170px;
+        height: 170px;
+
+        right: -80px;
+        top: -80px;
+
+        border-radius: 50%;
+        background: var(--story-glow);
+        filter: blur(20px);
+      }
+
+      .story-number {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.15em;
+        margin-bottom: 70px;
+      }
+
+      .story-card h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 14px;
+      }
+
+      .story-card p {
+        color: var(--muted);
+        line-height: 1.75;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+         TIMELINE
+         ========================================================= */
+
+      .timeline {
+        margin-top: 50px;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+
+        position: absolute;
+        left: 14px;
+        top: 0;
+        bottom: 0;
+
+        width: 1px;
+
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--accent-line),
+          transparent
+        );
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 30px 100px 1fr;
+        gap: 22px;
+
+        position: relative;
+        padding-bottom: 45px;
+      }
+
+      .timeline-dot {
+        width: 10px;
+        height: 10px;
+
+        margin-top: 7px;
+
+        border-radius: 50%;
+        background: var(--accent);
+
+        box-shadow: 0 0 18px var(--accent-glow);
+      }
+
+      .timeline-date {
+        color: var(--accent);
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+      }
+
+      .timeline-content {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 28px;
+      }
+
+      .timeline-content .timeline-label {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .timeline-content h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+
+      .timeline-content p {
+        color: var(--muted);
+        line-height: 1.75;
+        white-space: pre-line;
+      }
+
+      .timeline-empty {
+        padding: 50px;
+
+        text-align: center;
+        color: var(--muted);
+
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      /* =========================================================
+         LETTER
+         ========================================================= */
+
+      .letter-wrap {
+        max-width: 820px;
+        margin: 45px auto 0;
+      }
+
+      .letter-card {
+        padding: clamp(30px, 6vw, 65px);
+
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+
+        background: var(--letter-bg);
+        box-shadow: var(--card-shadow);
+
+        position: relative;
+        overflow: hidden;
+      }
+
+      .letter-card::before {
+        content: "";
+
+        position: absolute;
+        width: 260px;
+        height: 260px;
+
+        right: -120px;
+        top: -120px;
+
+        border-radius: 50%;
+        background: var(--story-glow);
+        filter: blur(30px);
+      }
+
+      .letter-greeting {
+        position: relative;
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(25px, 4vw, 36px);
+        margin-bottom: 30px;
+      }
+
+      .letter-message {
+        position: relative;
+
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 2;
+
+        white-space: pre-line;
+      }
+
+      .letter-closing {
+        position: relative;
+
+        margin-top: 35px;
+
+        color: var(--muted);
+        line-height: 1.8;
+
+        white-space: pre-line;
+      }
+
+      .letter-signature {
+        position: relative;
+
+        margin-top: 18px;
+
+        color: var(--accent);
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 21px;
+      }
+
+      /* =========================================================
+         INTERACTIVE SURPRISE
+         ========================================================= */
+
+      #surprise {
+        align-items: center;
+        text-align: center;
+      }
+
+      .surprise-content {
+        max-width: 760px;
+        margin: auto;
+      }
+
+      .surprise-box {
+        margin-top: 40px;
+      }
+
+      .surprise-question {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(28px, 5vw, 48px);
+        font-weight: 400;
+        line-height: 1.15;
+      }
+
+      .surprise-button-wrap {
+        margin-top: 35px;
+      }
+
+      .surprise-message {
+        max-width: 650px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-rows: 0fr;
+
+        opacity: 0;
+
+        transition:
+          grid-template-rows 0.8s ease,
+          opacity 0.6s ease,
+          margin 0.6s ease;
+      }
+
+      .surprise-message-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .surprise-message.show {
+        grid-template-rows: 1fr;
+        margin-top: 35px;
+        opacity: 1;
+      }
+
+      .surprise-message p {
+        color: var(--muted);
+        line-height: 1.9;
+        white-space: pre-line;
+
+        padding: 30px;
+
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+
+        background: var(--surprise-bg);
+      }
+
+      /* =========================================================
+         AUDIO
+         ========================================================= */
+
+      .audio-toggle {
+        position: fixed;
+        top: 22px;
+        right: 22px;
+
+        z-index: 110;
+
+        width: 44px;
+        height: 44px;
+
+        border: 1px solid var(--line);
+        border-radius: 50%;
+
+        background: var(--audio-bg);
+        color: var(--cream);
+
+        cursor: pointer;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        transition: 0.3s ease;
+      }
+
+      .audio-toggle:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-border-hover);
+      }
+
+      /* =========================================================
+         ENDING
+         ========================================================= */
+
+      #ending {
+        align-items: center;
+        text-align: center;
+      }
+
+      .ending-content {
+        max-width: 760px;
+        margin: auto;
+      }
+
+      .ending-line {
+        width: 70px;
+        height: 1px;
+
+        background: var(--accent);
+
+        margin: 35px auto;
+        opacity: 0.6;
+      }
+
+      .ending-message {
+        color: var(--muted);
+        line-height: 1.9;
+
+        white-space: pre-line;
+        margin-bottom: 30px;
+      }
+
+      .ending-from {
+        color: var(--accent);
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+      }
+
+      /* =========================================================
+         NAVIGATION
+         ========================================================= */
+
+      .nav {
+        position: fixed;
+        z-index: 100;
+
+        bottom: 22px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        max-width: calc(100vw - 30px);
+        overflow-x: auto;
+
+        padding: 7px;
+
+        border: 1px solid rgba(255, 255, 255, 0.09);
+
+        background: var(--nav-bg);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        border-radius: 999px;
+      }
+
+      .nav-dot {
+        flex: 0 0 auto;
+
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+        border: 0;
+
+        background: var(--nav-dot);
+
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .nav-dot.active {
+        width: 24px;
+        border-radius: 99px;
+
+        background: var(--accent);
+
+        box-shadow: 0 0 12px var(--accent-glow);
+      }
+
+      /* =========================================================
+         RESPONSIVE
+         ========================================================= */
+
+      @media (max-width: 760px) {
+        .screen {
+          padding: 55px 18px 115px;
+        }
+
+        .reveal-layout {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+
+        .reveal-image {
+          max-width: 430px;
+          width: 100%;
+          margin: auto;
+        }
+
+        .story-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .story-card {
+          min-height: auto;
+        }
+
+        .memory-image {
+          height: 60vh;
+        }
+
+        .memory-caption {
+          padding: 23px;
+        }
+
+        .timeline-item {
+          grid-template-columns: 25px 1fr;
+          gap: 16px;
+        }
+
+        .timeline-date {
+          grid-column: 2;
+          grid-row: 1;
+          margin-bottom: -8px;
+        }
+
+        .timeline-content {
+          grid-column: 2;
+        }
+
+        .timeline::before {
+          left: 11px;
+        }
+
+        .audio-toggle {
+          top: 15px;
+          right: 15px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+
+    <!-- =========================================================
+         STORY THEMES
+         ========================================================= -->
+
+    <link rel="stylesheet" href="css/themes/soft.css" />
+    <link rel="stylesheet" href="css/themes/elegant.css" />
+    <link rel="stylesheet" href="css/themes/dark.css" />
+    <link rel="stylesheet" href="css/themes/dreamy.css" />
+    <link rel="stylesheet" href="css/themes/romantic.css" />
+  </head>
+
+  <body class="theme-soft">
+    <!-- =========================================================
+         BACKGROUND
+         ========================================================= -->
+
+    <div class="ambient">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div id="particles"></div>
+    <div class="noise"></div>
+
+    <!-- =========================================================
+         OPTIONAL AUDIO
+         ========================================================= -->
+
+    <audio id="backgroundAudio" loop></audio>
+
+    <button
+      class="audio-toggle"
+      id="audioToggle"
+      onclick="toggleAudio()"
+      aria-label="Toggle music"
+      title="Music"
+    >
+      ♫
+    </button>
+
+    <!-- =========================================================
+         APP
+         ========================================================= -->
+
+    <main class="app">
+      <!-- =======================================================
+           01. OPENING
+           ======================================================= -->
+
+      <section class="screen active" id="opening">
+        <div class="screen-inner opening-content">
+          <div class="opening-mark">
+            <span></span>
+          </div>
+
+          <div class="eyebrow">A little story made for</div>
+
+          <h1 class="title" id="openingRecipient">—</h1>
+
+          <div class="opening-name" id="openingSender">—</div>
+
+          <p class="opening-subtitle">take a little moment</p>
+
+          <button class="btn" style="margin-top: 32px" onclick="nextScreen()">
+            Open the story
+          </button>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           02. BIRTHDAY REVEAL
+           ======================================================= -->
+
+      <section class="screen" id="reveal">
+        <div class="screen-inner">
+          <div class="reveal-layout">
+            <div class="reveal-image" id="revealImageContainer">
+              <img id="revealImage" src="" alt="" />
+            </div>
+
+            <div class="reveal-copy">
+              <div class="eyebrow">Today is about you</div>
+
+              <h2 class="section-title">
+                Happy Birthday,
+                <span id="revealRecipient">—</span>.
+              </h2>
+
+              <div class="reveal-date" id="revealDate">—</div>
+
+              <p class="reveal-message" id="revealMessage">—</p>
+
+              <button
+                class="btn"
+                style="margin-top: 30px"
+                onclick="nextScreen()"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           03. MEMORIES
+           ======================================================= -->
+
+      <section class="screen" id="memories">
+        <div class="screen-inner">
+          <div class="memory-header">
+            <div>
+              <div class="eyebrow">Little pieces of us</div>
+
+              <h2 class="section-title">Memories.</h2>
+
+              <p class="description">
+                Some moments are ordinary when they happen, then somehow become
+                the ones we remember.
+              </p>
+            </div>
+
+            <div class="memory-counter" id="memoryCounter">0 / 0</div>
+          </div>
+
+          <div class="memory-stage" id="memoryStage"></div>
+
+          <div class="memory-controls" id="memoryControls">
+            <button class="circle-btn" onclick="prevMemory()">←</button>
+            <button class="circle-btn" onclick="nextMemory()">→</button>
+          </div>
+
+          <div style="text-align: center; margin-top: 30px">
+            <button class="btn" onclick="nextScreen()">
+              Continue the story
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           04. OUR STORY
+           ======================================================= -->
+
+      <section class="screen" id="story">
+        <div class="screen-inner">
+          <div class="eyebrow">More than moments</div>
+
+          <h2 class="section-title">Our story.</h2>
+
+          <p class="description">
+            Every story has its beginning, the moments that stay, and the
+            chapter we are living now.
+          </p>
+
+          <div class="story-grid" id="storyGrid"></div>
+
+          <div style="text-align: center; margin-top: 40px">
+            <button class="btn" onclick="nextScreen()">See the timeline</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           05. TIMELINE
+           ======================================================= -->
+
+      <section class="screen" id="timeline">
+        <div class="screen-inner">
+          <div class="eyebrow">Along the way</div>
+
+          <h2 class="section-title">A few chapters.</h2>
+
+          <p class="description">
+            Not every important moment has a perfect date. Some are simply
+            remembered because they mattered.
+          </p>
+
+          <div class="timeline" id="timelineContainer"></div>
+
+          <div style="text-align: center; margin-top: 25px">
+            <button class="btn" onclick="nextScreen()">A little letter</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           06. PERSONAL LETTER
+           ======================================================= -->
+
+      <section class="screen" id="letter">
+        <div class="screen-inner">
+          <div class="eyebrow">Something from the heart</div>
+
+          <h2 class="section-title">A little letter.</h2>
+
+          <div class="letter-wrap">
+            <article class="letter-card">
+              <div class="letter-greeting" id="letterGreeting">Dear —</div>
+
+              <div class="letter-message" id="letterMessage">—</div>
+
+              <div class="letter-closing" id="letterClosing">—</div>
+
+              <div class="letter-signature" id="letterSignature">—</div>
+            </article>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px">
+            <button class="btn" onclick="nextScreen()">
+              I have one more thing
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           07. INTERACTIVE SURPRISE
+           ======================================================= -->
+
+      <section class="screen" id="surprise">
+        <div class="screen-inner surprise-content">
+          <div class="eyebrow">Before the story ends</div>
+
+          <div class="surprise-box">
+            <h2 class="surprise-question" id="surpriseQuestion">
+              I have one more thing for you.
+            </h2>
+
+            <div class="surprise-button-wrap">
+              <button class="btn" onclick="revealSurprise()">Reveal →</button>
+            </div>
+
+            <div class="surprise-message" id="surpriseMessage">
+              <div class="surprise-message-inner">
+                <p id="surpriseText">—</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px">
+            <button class="btn" onclick="nextScreen()">One last page</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           08. ENDING
+           ======================================================= -->
+
+      <section class="screen" id="ending">
+        <div class="screen-inner ending-content">
+          <div class="eyebrow">The end of this little story</div>
+
+          <h2 class="title" id="endingTitle">—</h2>
+
+          <div class="ending-line"></div>
+
+          <p class="ending-message" id="endingMessage">—</p>
+
+          <div class="ending-from" id="endingFrom">—</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <nav class="nav" id="nav">
+      <button class="nav-dot active" onclick="goToScreen(0)"></button>
+      <button class="nav-dot" onclick="goToScreen(1)"></button>
+      <button class="nav-dot" onclick="goToScreen(2)"></button>
+      <button class="nav-dot" onclick="goToScreen(3)"></button>
+      <button class="nav-dot" onclick="goToScreen(4)"></button>
+      <button class="nav-dot" onclick="goToScreen(5)"></button>
+      <button class="nav-dot" onclick="goToScreen(6)"></button>
+      <button class="nav-dot" onclick="goToScreen(7)"></button>
+    </nav>
+
+    <script>
+      /* =========================================================
+         CLIENT DATA
+         ========================================================= */
+
+      const clientData = {
+        // =======================================================
+        // IDENTITY
+        // =======================================================
+
+        recipient: "Aisyah",
+        sender: "Hakram",
+        birthdayDate: "27 September 2026",
+
+        // =======================================================
+        // THEME
+        // soft
+        // elegant
+        // dark
+        // dreamy
+        // romantic
+        // =======================================================
+
+        theme: "romantic",
+
+        // =======================================================
+        // BIRTHDAY
+        // =======================================================
+
+        message: `
+Selamat ulang tahun, Aisyah.
+
+Semoga di umur yang baru ini kamu selalu diberikan
+kebahagiaan, kesehatan, dan banyak hal baik.
+        `,
+
+        // =======================================================
+        // MAIN REVEAL PHOTO
+        // =======================================================
+
+        coverImage: "assets/photos/cover.jpg",
+
+        // =======================================================
+        // MEMORIES
+        // MAX 10
+        // =======================================================
+
+        photos: [
+          {
+            image: "assets/photos/photo-1.jpg",
+            caption: "A little moment worth remembering.",
+          },
+
+          {
+            image: "assets/photos/photo-2.jpg",
+            caption: "One of those days that somehow stayed.",
+          },
+
+          {
+            image: "assets/photos/photo-3.jpg",
+            caption: "A memory that still feels familiar.",
+          },
+
+          {
+            image: "assets/photos/photo-4.jpg",
+            caption: "Another little piece of the story.",
+          },
+        ],
+
+        // =======================================================
+        // OUR STORY
+        // 3 SECTIONS
+        // =======================================================
+
+        story: {
+          howItStarted: `
+Maybe the beginning was simple.
+
+Nothing too dramatic,
+nothing that seemed important at first.
+
+But somehow,
+that small beginning became the first page
+of a story worth remembering.
+          `,
+
+          aSpecialMoment: `
+There are always certain moments
+that feel different from the others.
+
+The conversations,
+the laughter,
+the quiet moments,
+and the memories that stayed
+even after the day was over.
+          `,
+
+          today: `
+And this is where the story is today.
+
+There is still so much ahead,
+but this chapter already has
+more than enough moments worth keeping.
+          `,
+        },
+
+        // =======================================================
+        // TIMELINE
+        // MAX 4
+        // =======================================================
+
+        timeline: [
+          {
+            year: "2024",
+            date: "The beginning",
+            event: "How it started",
+            description: `
+A simple moment became
+the beginning of a much longer story.
+            `,
+          },
+
+          {
+            year: "2025",
+            date: "A special memory",
+            event: "Another chapter",
+            description: `
+More moments,
+more conversations,
+and more things to remember.
+            `,
+          },
+
+          {
+            year: "2026",
+            date: "Another chapter",
+            event: "A new memory",
+            description: `
+Another little moment
+that became part of the story.
+            `,
+          },
+
+          {
+            year: "2026",
+            date: "Today",
+            event: "This moment",
+            description: `
+And somehow,
+we are here now.
+            `,
+          },
+        ],
+
+        // =======================================================
+        // PERSONAL LETTER
+        // =======================================================
+
+        letter: {
+          greeting: "Dear Aisyah,",
+
+          message: `
+I don't always know how to put every feeling
+into the right words.
+
+But if there is one thing I want you to know,
+it is that the little moments matter.
+
+The conversations,
+the laughter,
+the memories,
+and even the ordinary days
+somehow became part of something meaningful.
+
+I hope this new chapter of your life
+brings you many reasons to smile.
+
+And I hope that somewhere along the way,
+you will always find something worth remembering.
+          `,
+
+          closing: `
+Happy birthday.
+
+Keep becoming the person
+you want to become.
+          `,
+
+          signature: "— Hakram",
+        },
+
+        // =======================================================
+        // INTERACTIVE SURPRISE
+        // =======================================================
+
+        surprise: {
+          question: "I have one more thing for you.",
+
+          buttonText: "Reveal →",
+
+          message: `
+If you ever look back at this little story,
+I hope you remember one simple thing:
+
+some moments become special
+not because they were perfect,
+
+but because they were ours.
+          `,
+        },
+
+        // =======================================================
+        // AUDIO
+        // OPTIONAL
+        // =======================================================
+
+        audio: {
+          enabled: false,
+          src: "assets/audio/music.mp3",
+        },
+
+        // =======================================================
+        // ENDING
+        // =======================================================
+
+        ending: {
+          title: "Until another story.",
+
+          message: `
+Whatever comes next,
+
+I hope there will always be
+something worth remembering.
+
+Thank you for being part of this chapter.
+          `,
+
+          from: "— Hakram",
+        },
+      };
+
+      /* =========================================================
+         HELPERS
+         ========================================================= */
+
+      function safeText(value) {
+        if (value === null || value === undefined) {
+          return "";
+        }
+
+        return String(value).trim();
+      }
+
+      /* =========================================================
+         THEME
+         ========================================================= */
+
+      function applyTheme() {
+        const themes = ["soft", "elegant", "dark", "dreamy", "romantic"];
+
+        const selectedTheme = safeText(clientData.theme).toLowerCase();
+
+        const theme = themes.includes(selectedTheme)
+          ? selectedTheme
+          : "elegant";
+
+        document.body.classList.remove(
+          ...themes.map((item) => `theme-${item}`),
+        );
+
+        document.body.classList.add(`theme-${theme}`);
+      }
+
+      /* =========================================================
+         PARTICLES
+         ========================================================= */
+
+      function createParticles() {
+        const container = document.getElementById("particles");
+
+        for (let i = 0; i < 28; i++) {
+          const particle = document.createElement("span");
+
+          particle.className = "particle";
+
+          particle.style.left = `${Math.random() * 100}%`;
+
+          particle.style.animationDuration = `${8 + Math.random() * 14}s`;
+
+          particle.style.animationDelay = `${Math.random() * -15}s`;
+
+          particle.style.opacity = `${0.15 + Math.random() * 0.5}`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      /* =========================================================
+         BASIC IDENTITY
+         ========================================================= */
+
+      function renderIdentity() {
+        const recipient = safeText(clientData.recipient);
+        const sender = safeText(clientData.sender);
+
+        document.getElementById("openingRecipient").textContent = recipient;
+
+        document.getElementById("openingSender").textContent = sender;
+
+        document.getElementById("revealRecipient").textContent = recipient;
+
+        document.getElementById("revealDate").textContent = safeText(
+          clientData.birthdayDate,
+        );
+
+        document.getElementById("revealMessage").textContent = safeText(
+          clientData.message,
+        );
+
+        document.getElementById("endingFrom").textContent =
+          safeText(clientData.ending?.from) || `— ${sender}`;
+      }
+
+      /* =========================================================
+         COVER IMAGE
+         ========================================================= */
+
+      function renderCoverImage() {
+        const image = safeText(clientData.coverImage);
+
+        const container = document.getElementById("revealImageContainer");
+
+        const element = document.getElementById("revealImage");
+
+        if (!image) {
+          container.style.display = "none";
+          return;
+        }
+
+        element.src = image;
+
+        element.onerror = () => {
+          container.style.display = "none";
+        };
+      }
+
+      /* =========================================================
+         MEMORIES
+         ========================================================= */
+
+      let memoryIndex = 0;
+
+      function renderMemories() {
+        const stage = document.getElementById("memoryStage");
+
+        const controls = document.getElementById("memoryControls");
+
+        const counter = document.getElementById("memoryCounter");
+
+        stage.innerHTML = "";
+
+        const photos = Array.isArray(clientData.photos)
+          ? clientData.photos
+              .filter((item) => item && safeText(item.image))
+              .slice(0, 10)
+          : [];
+
+        if (!photos.length) {
+          stage.innerHTML = `
+            <div class="memory-empty">
+              No memories were added yet.
+            </div>
+          `;
+
+          controls.style.display = "none";
+          counter.textContent = "0 / 0";
+
+          return;
+        }
+
+        memoryIndex = Math.min(memoryIndex, photos.length - 1);
+
+        photos.forEach((photo, index) => {
+          const card = document.createElement("article");
+
+          card.className = `memory-card ${
+            index === memoryIndex ? "active" : ""
+          }`;
+
+          card.innerHTML = `
+            <div class="memory-image">
+              <img
+                src="${safeText(photo.image)}"
+                alt=""
+                loading="${index === 0 ? "eager" : "lazy"}"
+              />
+            </div>
+
+            <div class="memory-caption">
+              <p>${safeText(photo.caption)}</p>
+            </div>
+          `;
+
+          const image = card.querySelector("img");
+
+          image.onerror = () => {
+            image.style.display = "none";
+          };
+
+          stage.appendChild(card);
+        });
+
+        counter.textContent = `${memoryIndex + 1} / ${photos.length}`;
+
+        controls.style.display = photos.length > 1 ? "flex" : "none";
+      }
+
+      function updateMemory() {
+        const cards = document.querySelectorAll(".memory-card");
+
+        cards.forEach((card, index) => {
+          card.classList.toggle("active", index === memoryIndex);
+        });
+
+        const counter = document.getElementById("memoryCounter");
+
+        counter.textContent = `${memoryIndex + 1} / ${cards.length}`;
+      }
+
+      function nextMemory() {
+        const cards = document.querySelectorAll(".memory-card");
+
+        if (!cards.length) return;
+
+        memoryIndex = (memoryIndex + 1) % cards.length;
+
+        updateMemory();
+      }
+
+      function prevMemory() {
+        const cards = document.querySelectorAll(".memory-card");
+
+        if (!cards.length) return;
+
+        memoryIndex = (memoryIndex - 1 + cards.length) % cards.length;
+
+        updateMemory();
+      }
+
+      /* =========================================================
+         OUR STORY
+         ========================================================= */
+
+      function renderStory() {
+        const container = document.getElementById("storyGrid");
+
+        const story = clientData.story || {};
+
+        const sections = [
+          {
+            number: "01",
+            title: "How It Started",
+            text: story.howItStarted,
+          },
+
+          {
+            number: "02",
+            title: "A Special Moment",
+            text: story.aSpecialMoment,
+          },
+
+          {
+            number: "03",
+            title: "Today",
+            text: story.today,
+          },
+        ];
+
+        const validSections = sections.filter((item) => safeText(item.text));
+
+        container.innerHTML = "";
+
+        if (!validSections.length) {
+          container.innerHTML = `
+            <div
+              class="memory-empty"
+              style="grid-column:1/-1;"
+            >
+              No story has been added yet.
+            </div>
+          `;
+
+          return;
+        }
+
+        validSections.forEach((item) => {
+          const card = document.createElement("article");
+
+          card.className = "story-card";
+
+          card.innerHTML = `
+              <div class="story-number">
+                ${item.number}
+              </div>
+
+              <h3>
+                ${safeText(item.title)}
+              </h3>
+
+              <p>
+                ${safeText(item.text)}
+              </p>
+            `;
+
+          container.appendChild(card);
+        });
+      }
+
+      /* =========================================================
+         TIMELINE
+         ========================================================= */
+
+      function renderTimeline() {
+        const container = document.getElementById("timelineContainer");
+
+        const items = Array.isArray(clientData.timeline)
+          ? clientData.timeline
+              .filter(
+                (item) =>
+                  item &&
+                  (safeText(item.year) ||
+                    safeText(item.event) ||
+                    safeText(item.description)),
+              )
+              .slice(0, 4)
+          : [];
+
+        container.innerHTML = "";
+
+        if (!items.length) {
+          container.innerHTML = `
+            <div class="timeline-empty">
+              No timeline has been added yet.
+            </div>
+          `;
+
+          return;
+        }
+
+        items.forEach((item) => {
+          const element = document.createElement("article");
+
+          element.className = "timeline-item";
+
+          element.innerHTML = `
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+              ${safeText(item.year)}
+            </div>
+
+            <div class="timeline-content">
+              <div class="timeline-label">
+                ${safeText(item.date)}
+              </div>
+
+              <h3>
+                ${safeText(item.event)}
+              </h3>
+
+              <p>
+                ${safeText(item.description)}
+              </p>
+            </div>
+          `;
+
+          container.appendChild(element);
+        });
+      }
+
+      /* =========================================================
+         LETTER
+         ========================================================= */
+
+      function renderLetter() {
+        const letter = clientData.letter || {};
+
+        const recipient = safeText(clientData.recipient);
+
+        document.getElementById("letterGreeting").textContent =
+          safeText(letter.greeting) || `Dear ${recipient},`;
+
+        document.getElementById("letterMessage").textContent = safeText(
+          letter.message,
+        );
+
+        document.getElementById("letterClosing").textContent = safeText(
+          letter.closing,
+        );
+
+        document.getElementById("letterSignature").textContent =
+          safeText(letter.signature) || `— ${safeText(clientData.sender)}`;
+      }
+
+      /* =========================================================
+         INTERACTIVE SURPRISE
+         ========================================================= */
+
+      function renderSurprise() {
+        const surprise = clientData.surprise || {};
+
+        document.getElementById("surpriseQuestion").textContent =
+          safeText(surprise.question) || "I have one more thing for you.";
+
+        document.querySelector(".surprise-button-wrap .btn").textContent =
+          safeText(surprise.buttonText) || "Reveal →";
+
+        document.getElementById("surpriseText").textContent = safeText(
+          surprise.message,
+        );
+      }
+
+      function revealSurprise() {
+        const message = document.getElementById("surpriseMessage");
+
+        message.classList.add("show");
+      }
+
+      /* =========================================================
+         AUDIO
+         ========================================================= */
+
+      let audioStarted = false;
+
+      function renderAudio() {
+        const audio = document.getElementById("backgroundAudio");
+
+        const toggle = document.getElementById("audioToggle");
+
+        const settings = clientData.audio || {};
+
+        if (!settings.enabled || !safeText(settings.src)) {
+          toggle.style.display = "none";
+          return;
+        }
+
+        audio.src = safeText(settings.src);
+
+        toggle.style.display = "block";
+      }
+
+      function toggleAudio() {
+        const audio = document.getElementById("backgroundAudio");
+
+        const toggle = document.getElementById("audioToggle");
+
+        if (!audio.src) return;
+
+        if (audio.paused) {
+          audio
+            .play()
+            .then(() => {
+              audioStarted = true;
+              toggle.textContent = "♫";
+            })
+            .catch(() => {});
+        } else {
+          audio.pause();
+          toggle.textContent = "♪";
+        }
+      }
+
+      /* =========================================================
+         ENDING
+         ========================================================= */
+
+      function renderEnding() {
+        const ending = clientData.ending || {};
+
+        document.getElementById("endingTitle").textContent = safeText(
+          ending.title,
+        );
+
+        document.getElementById("endingMessage").textContent = safeText(
+          ending.message,
+        );
+      }
+
+      /* =========================================================
+         SCREEN NAVIGATION
+         ========================================================= */
+
+      const screens = Array.from(document.querySelectorAll(".screen"));
+
+      const navDots = Array.from(document.querySelectorAll(".nav-dot"));
+
+      let currentScreen = 0;
+
+      function goToScreen(index) {
+        if (index < 0 || index >= screens.length) {
+          return;
+        }
+
+        currentScreen = index;
+
+        screens.forEach((screen, i) => {
+          screen.classList.toggle("active", i === index);
+        });
+
+        navDots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        if (clientData.audio?.enabled && !audioStarted) {
+          const audio = document.getElementById("backgroundAudio");
+
+          audio
+            .play()
+            .then(() => {
+              audioStarted = true;
+            })
+            .catch(() => {});
+        }
+      }
+
+      function nextScreen() {
+        if (currentScreen < screens.length - 1) {
+          goToScreen(currentScreen + 1);
+        }
+      }
+
+      /* =========================================================
+         KEYBOARD NAVIGATION
+         ========================================================= */
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          nextScreen();
+        }
+
+        if (event.key === "ArrowLeft") {
+          goToScreen(currentScreen - 1);
+        }
+      });
+
+      /* =========================================================
+         INITIALIZE
+         ========================================================= */
+
+      applyTheme();
+
+      createParticles();
+
+      renderIdentity();
+
+      renderCoverImage();
+
+      renderMemories();
+
+      renderStory();
+
+      renderTimeline();
+
+      renderLetter();
+
+      renderSurprise();
+
+      renderAudio();
+
+      renderEnding();
+    </script>
+  </body>
+</html>

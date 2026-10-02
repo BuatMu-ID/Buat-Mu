@@ -1,0 +1,2024 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Signature Experience</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #08080b;
+        --bg-2: #101015;
+        --surface: rgba(255, 255, 255, 0.055);
+        --surface-strong: rgba(255, 255, 255, 0.085);
+
+        --cream: #f7f0e4;
+        --muted: #aaa39b;
+
+        --gold: #d8b36a;
+        --gold-light: #f1d89e;
+
+        --line: rgba(255, 255, 255, 0.1);
+
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background: #050506;
+        color: var(--cream);
+        font-family: "DM Sans", sans-serif;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      /* =========================================================
+       APP
+    ========================================================= */
+
+      .app {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        height: 100vh;
+        height: 100dvh;
+        margin: auto;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 50% 20%,
+            rgba(216, 179, 106, 0.08),
+            transparent 35%
+          ),
+          var(--bg);
+      }
+
+      /* =========================================================
+       AMBIENT BACKGROUND
+    ========================================================= */
+
+      .ambient {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .ambient::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.25;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.15) 1px,
+          transparent 1px
+        );
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, black, transparent 85%);
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.5;
+        animation: orbFloat 12s ease-in-out infinite alternate;
+      }
+
+      .orb.one {
+        width: 280px;
+        height: 280px;
+        top: -100px;
+        left: -120px;
+        background: rgba(216, 179, 106, 0.13);
+      }
+
+      .orb.two {
+        width: 240px;
+        height: 240px;
+        right: -100px;
+        top: 30%;
+        background: rgba(126, 94, 180, 0.1);
+        animation-delay: -4s;
+      }
+
+      .orb.three {
+        width: 220px;
+        height: 220px;
+        left: 20%;
+        bottom: -120px;
+        background: rgba(216, 179, 106, 0.09);
+        animation-delay: -8s;
+      }
+
+      @keyframes orbFloat {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        to {
+          transform: translate3d(25px, -35px, 0) scale(1.12);
+        }
+      }
+
+      .particles {
+        position: absolute;
+        inset: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--gold-light);
+        opacity: 0;
+        box-shadow: 0 0 12px rgba(240, 213, 155, 0.8);
+        animation: particleFloat linear infinite;
+      }
+
+      @keyframes particleFloat {
+        0% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.6);
+        }
+
+        20% {
+          opacity: 0.7;
+        }
+
+        80% {
+          opacity: 0.25;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-110px) scale(1);
+        }
+      }
+
+      /* =========================================================
+       NOISE
+    ========================================================= */
+
+      .noise {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+      }
+
+      /* =========================================================
+       SCREENS
+    ========================================================= */
+
+      .screen {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.035);
+
+        transition:
+          opacity 0.75s var(--ease),
+          transform 0.9s var(--ease),
+          visibility 0.75s ease;
+      }
+
+      .screen.active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+
+      .scroll {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding: 70px 24px 120px;
+
+        scrollbar-width: none;
+        overscroll-behavior: contain;
+      }
+
+      .scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* =========================================================
+       TYPOGRAPHY
+    ========================================================= */
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .display {
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        letter-spacing: -0.035em;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      /* =========================================================
+       BUTTON
+    ========================================================= */
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        min-height: 50px;
+        padding: 0 24px;
+
+        border: 1px solid rgba(216, 179, 106, 0.42);
+        border-radius: 999px;
+
+        color: var(--cream);
+        background: rgba(216, 179, 106, 0.07);
+
+        cursor: pointer;
+
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease,
+          transform 0.3s var(--ease);
+      }
+
+      .btn:hover {
+        background: rgba(216, 179, 106, 0.14);
+        border-color: rgba(216, 179, 106, 0.7);
+      }
+
+      .btn:active {
+        transform: scale(0.96);
+      }
+
+      /* =========================================================
+       OPENING
+    ========================================================= */
+
+      .opening {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        background: radial-gradient(
+          circle at center,
+          rgba(216, 179, 106, 0.1),
+          transparent 38%
+        );
+      }
+
+      .opening-content {
+        position: relative;
+        z-index: 5;
+        padding: 30px;
+      }
+
+      .opening-line {
+        width: 55px;
+        height: 1px;
+        margin: 0 auto 28px;
+        background: var(--gold);
+        box-shadow: 0 0 18px rgba(216, 179, 106, 0.5);
+      }
+
+      .opening-small {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .opening-name {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(44px, 13vw, 68px);
+        font-weight: 400;
+        font-style: italic;
+        line-height: 0.98;
+        color: var(--cream);
+        text-shadow: 0 0 35px rgba(216, 179, 106, 0.12);
+      }
+
+      .opening-sub {
+        margin-top: 22px;
+        color: var(--muted);
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 16px;
+      }
+
+      .opening-button {
+        margin-top: 40px;
+      }
+
+      /* =========================================================
+       REVEAL
+    ========================================================= */
+
+      .reveal {
+        background: linear-gradient(
+          to bottom,
+          rgba(8, 8, 11, 0.1),
+          rgba(8, 8, 11, 0.8)
+        );
+      }
+
+      .reveal-title {
+        font-size: clamp(43px, 12vw, 62px);
+        line-height: 0.98;
+        margin-bottom: 32px;
+      }
+
+      .reveal-title span {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+
+      .reveal-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.025)
+        );
+
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.4),
+          inset 0 1px rgba(255, 255, 255, 0.05);
+
+        backdrop-filter: blur(18px);
+      }
+
+      .reveal-image {
+        position: relative;
+        height: 330px;
+        overflow: hidden;
+        background: #17171c;
+      }
+
+      .reveal-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 45%,
+          rgba(0, 0, 0, 0.5)
+        );
+      }
+
+      .reveal-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .reveal-body {
+        padding: 26px;
+      }
+
+      .reveal-from {
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 18px;
+      }
+
+      .reveal-from strong {
+        color: var(--cream);
+      }
+
+      .reveal-message {
+        white-space: pre-line;
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        line-height: 1.65;
+      }
+
+      /* =========================================================
+       SECTION HEADING
+    ========================================================= */
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: 0.98;
+        margin-bottom: 36px;
+      }
+
+      .section-title em {
+        color: var(--gold-light);
+        font-weight: 400;
+      }
+
+      /* =========================================================
+       MEMORIES
+    ========================================================= */
+
+      .memory-stage {
+        position: relative;
+      }
+
+      .memory-photo {
+        position: relative;
+        width: 100%;
+        height: min(68vh, 500px);
+        min-height: 340px;
+
+        overflow: hidden;
+        border-radius: 28px;
+
+        background: #111116;
+
+        box-shadow:
+          0 30px 70px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+
+      .memory-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+        transition:
+          opacity 0.4s ease,
+          transform 0.7s var(--ease);
+      }
+
+      .memory-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          transparent 45%
+        );
+        pointer-events: none;
+      }
+
+      .memory-counter {
+        position: absolute;
+        z-index: 4;
+        top: 16px;
+        right: 16px;
+
+        padding: 8px 12px;
+        border-radius: 999px;
+
+        color: var(--cream);
+        background: rgba(0, 0, 0, 0.42);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+
+        font-size: 10px;
+      }
+
+      .memory-controls {
+        position: absolute;
+        z-index: 5;
+        inset: 50% 12px auto;
+
+        display: flex;
+        justify-content: space-between;
+
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .memory-arrow {
+        width: 40px;
+        height: 40px;
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+
+        color: var(--cream);
+        background: rgba(0, 0, 0, 0.38);
+
+        backdrop-filter: blur(12px);
+
+        cursor: pointer;
+        pointer-events: auto;
+      }
+
+      .memory-caption {
+        min-height: 90px;
+        padding: 22px 8px 0;
+
+        text-align: center;
+
+        color: var(--muted);
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.55;
+
+        white-space: pre-line;
+      }
+
+      .memory-empty {
+        padding: 45px 25px;
+        border: 1px dashed rgba(216, 179, 106, 0.25);
+        border-radius: 24px;
+        color: var(--muted);
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      /* =========================================================
+       STORY
+    ========================================================= */
+
+      .story-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .story-card {
+        position: relative;
+        padding: 25px;
+
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 24px;
+
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.065),
+          rgba(255, 255, 255, 0.025)
+        );
+
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+
+        backdrop-filter: blur(15px);
+
+        overflow: hidden;
+      }
+
+      .story-card::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: -50px;
+        top: -50px;
+
+        border-radius: 50%;
+        background: rgba(216, 179, 106, 0.08);
+        filter: blur(25px);
+      }
+
+      .story-label {
+        color: var(--gold);
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .story-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 12px;
+      }
+
+      .story-card p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+       TIMELINE
+    ========================================================= */
+
+      .timeline {
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 8px;
+        width: 1px;
+
+        background: linear-gradient(
+          to bottom,
+          var(--gold),
+          rgba(216, 179, 106, 0.05)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 18px;
+        margin-bottom: 25px;
+      }
+
+      .timeline-dot {
+        position: relative;
+        z-index: 2;
+
+        width: 17px;
+        height: 17px;
+
+        margin-top: 5px;
+
+        border-radius: 50%;
+        background: var(--gold);
+
+        box-shadow:
+          0 0 0 5px rgba(216, 179, 106, 0.08),
+          0 0 25px rgba(216, 179, 106, 0.35);
+      }
+
+      .timeline-card {
+        padding: 22px;
+
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.065),
+          rgba(255, 255, 255, 0.025)
+        );
+      }
+
+      .timeline-year {
+        color: var(--gold-light);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        margin-bottom: 7px;
+      }
+
+      .timeline-date {
+        color: var(--muted);
+        font-size: 10px;
+        margin-bottom: 12px;
+      }
+
+      .timeline-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 23px;
+        font-weight: 400;
+        margin-bottom: 9px;
+      }
+
+      .timeline-card p {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.7;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+       LETTER
+    ========================================================= */
+
+      .letter-wrap {
+        perspective: 1000px;
+      }
+
+      .letter {
+        position: relative;
+
+        padding: 36px 27px;
+
+        border-radius: 26px;
+
+        color: #292722;
+
+        background: linear-gradient(135deg, #f7f0e4, #e9dfcf);
+
+        box-shadow:
+          0 35px 80px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(70, 60, 40, 0.08);
+
+        transform: rotateX(2deg);
+      }
+
+      .letter::before {
+        content: "";
+        position: absolute;
+        inset: 9px;
+
+        border: 1px solid rgba(70, 60, 40, 0.12);
+        border-radius: 19px;
+
+        pointer-events: none;
+      }
+
+      .letter-label {
+        position: relative;
+        color: #9d7a3d;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      .letter p {
+        position: relative;
+        white-space: pre-line;
+
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .letter-signature {
+        margin-top: 30px;
+        font-style: italic;
+        color: #665b4b;
+      }
+
+      /* =========================================================
+       INTERACTIVE
+    ========================================================= */
+
+      .interactive {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .interactive-content {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .interactive-orb {
+        position: relative;
+
+        width: 105px;
+        height: 105px;
+
+        margin: 0 auto 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(216, 179, 106, 0.45);
+
+        background: radial-gradient(
+          circle,
+          rgba(216, 179, 106, 0.2),
+          rgba(216, 179, 106, 0.03) 65%,
+          transparent
+        );
+
+        box-shadow:
+          0 0 50px rgba(216, 179, 106, 0.13),
+          inset 0 0 35px rgba(216, 179, 106, 0.08);
+
+        animation: orbPulse 3s ease-in-out infinite;
+      }
+
+      .interactive-orb::before,
+      .interactive-orb::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(216, 179, 106, 0.18);
+      }
+
+      .interactive-orb::before {
+        inset: -13px;
+      }
+
+      .interactive-orb::after {
+        inset: -26px;
+        opacity: 0.45;
+      }
+
+      @keyframes orbPulse {
+        50% {
+          transform: scale(1.05);
+          box-shadow:
+            0 0 75px rgba(216, 179, 106, 0.22),
+            inset 0 0 35px rgba(216, 179, 106, 0.12);
+        }
+      }
+
+      .interactive-content h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(40px, 12vw, 58px);
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      .interactive-description {
+        max-width: 330px;
+        margin: 0 auto 30px;
+
+        color: var(--muted);
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 17px;
+        line-height: 1.6;
+
+        white-space: pre-line;
+      }
+
+      .interactive-reveal {
+        display: grid;
+        grid-template-rows: 0fr;
+
+        opacity: 0;
+
+        transition:
+          grid-template-rows 0.8s ease,
+          opacity 0.6s ease,
+          margin 0.6s ease;
+      }
+
+      .interactive-reveal-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .interactive-reveal.show {
+        grid-template-rows: 1fr;
+        margin-top: 30px;
+        opacity: 1;
+      }
+
+      .interactive-message {
+        color: var(--cream);
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        line-height: 1.7;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+       FINAL REVEAL
+    ========================================================= */
+
+      .final {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        background: radial-gradient(
+          circle at center,
+          rgba(216, 179, 106, 0.13),
+          transparent 42%
+        );
+      }
+
+      .final-content {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .final-symbol {
+        width: 70px;
+        height: 70px;
+
+        margin: 0 auto 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(216, 179, 106, 0.3);
+        border-radius: 50%;
+
+        color: var(--gold-light);
+
+        box-shadow: 0 0 45px rgba(216, 179, 106, 0.12);
+
+        animation: breathe 3s ease-in-out infinite;
+      }
+
+      @keyframes breathe {
+        50% {
+          transform: scale(1.06);
+        }
+      }
+
+      .final-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(43px, 13vw, 62px);
+        font-weight: 400;
+        line-height: 0.98;
+        margin-bottom: 35px;
+      }
+
+      .final-message {
+        display: grid;
+        grid-template-rows: 0fr;
+
+        opacity: 0;
+
+        transition:
+          grid-template-rows 0.9s ease,
+          opacity 0.6s ease,
+          margin 0.6s ease;
+      }
+
+      .final-message-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .final-message.show {
+        grid-template-rows: 1fr;
+        margin-top: 30px;
+        opacity: 1;
+      }
+
+      .final-message p {
+        color: var(--cream);
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        line-height: 1.7;
+        white-space: pre-line;
+      }
+
+      /* =========================================================
+       ENDING
+    ========================================================= */
+
+      .ending {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        background: radial-gradient(
+          circle at center,
+          rgba(216, 179, 106, 0.08),
+          transparent 40%
+        );
+      }
+
+      .ending-content {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .ending-symbol {
+        color: var(--gold-light);
+        font-size: 28px;
+        margin-bottom: 25px;
+      }
+
+      .ending-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(42px, 12vw, 58px);
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 22px;
+      }
+
+      .ending-message {
+        max-width: 340px;
+        margin: 0 auto 30px;
+
+        color: var(--muted);
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        line-height: 1.7;
+
+        white-space: pre-line;
+      }
+
+      .ending-from {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .ending-from strong {
+        color: var(--cream);
+      }
+
+      /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+      .navigation {
+        position: absolute;
+        z-index: 100;
+
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 7px;
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+
+        background: rgba(8, 8, 11, 0.72);
+        backdrop-filter: blur(18px);
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: 0.4s ease;
+      }
+
+      .navigation.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-btn {
+        width: 34px;
+        height: 34px;
+
+        border: 0;
+        border-radius: 50%;
+
+        color: var(--cream);
+        background: transparent;
+
+        cursor: pointer;
+      }
+
+      .nav-progress {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .progress {
+        width: 65px;
+        height: 2px;
+
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .progress-fill {
+        width: 0;
+        height: 100%;
+        background: var(--gold);
+
+        transition: width 0.6s var(--ease);
+      }
+
+      /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+      @media (min-width: 700px) {
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .app {
+          height: min(850px, 94vh);
+          border-radius: 32px;
+
+          box-shadow:
+            0 40px 100px rgba(0, 0, 0, 0.65),
+            0 0 0 8px #141417;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .scroll {
+          padding-left: 19px;
+          padding-right: 19px;
+        }
+
+        .memory-photo {
+          min-height: 310px;
+        }
+
+        .letter {
+          padding: 30px 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- =====================================================
+         AMBIENT SYSTEM
+    ====================================================== -->
+
+      <div class="ambient">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+        <div class="particles" id="particles"></div>
+      </div>
+
+      <div class="noise"></div>
+
+      <!-- =====================================================
+         OPENING
+    ====================================================== -->
+
+      <section class="screen opening active" data-screen="0">
+        <div class="opening-content">
+          <div class="opening-line"></div>
+
+          <p class="opening-small">A little something for</p>
+
+          <h1 class="opening-name" id="openingName">Someone Special</h1>
+
+          <p class="opening-sub">take a moment before you open this</p>
+
+          <button class="btn opening-button" id="openExperience">
+            Open the experience
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         REVEAL
+    ====================================================== -->
+
+      <section class="screen reveal" data-screen="1">
+        <div class="scroll">
+          <p class="eyebrow">For your special day</p>
+
+          <h2 class="reveal-title display">
+            Happy Birthday,<br />
+            <span id="revealName">Name</span>
+          </h2>
+
+          <div class="reveal-card">
+            <div class="reveal-image" id="revealImageContainer">
+              <img id="revealImage" alt="" />
+            </div>
+
+            <div class="reveal-body">
+              <p class="reveal-from">
+                From <strong id="revealSender">Someone</strong>
+              </p>
+
+              <p class="reveal-message" id="birthdayMessage"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         MEMORIES
+    ====================================================== -->
+
+      <section class="screen" data-screen="2">
+        <div class="scroll">
+          <p class="eyebrow">Little pieces of time</p>
+
+          <h2 class="section-title">
+            The moments<br />
+            <em>we keep.</em>
+          </h2>
+
+          <div id="memoryContainer"></div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         STORY
+    ====================================================== -->
+
+      <section class="screen" data-screen="3">
+        <div class="scroll">
+          <p class="eyebrow">Our story</p>
+
+          <h2 class="section-title">
+            Somehow,<br />
+            <em>it became us.</em>
+          </h2>
+
+          <div class="story-grid" id="storyContainer"></div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         TIMELINE
+    ====================================================== -->
+
+      <section class="screen" data-screen="4">
+        <div class="scroll">
+          <p class="eyebrow">A little timeline</p>
+
+          <h2 class="section-title">
+            Before<br />
+            <em>today.</em>
+          </h2>
+
+          <div class="timeline" id="timelineContainer"></div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         LETTER
+    ====================================================== -->
+
+      <section class="screen" data-screen="5">
+        <div class="scroll">
+          <p class="eyebrow">Something personal</p>
+
+          <h2 class="section-title">
+            A letter<br />
+            <em>for you.</em>
+          </h2>
+
+          <div class="letter-wrap">
+            <article class="letter">
+              <p class="letter-label">Written especially for you</p>
+
+              <p id="letterMessage"></p>
+
+              <p class="letter-signature" id="letterSignature"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         INTERACTIVE
+    ====================================================== -->
+
+      <section class="screen interactive" data-screen="6">
+        <div class="interactive-content">
+          <div class="interactive-orb">✦</div>
+
+          <p class="eyebrow">One more thing</p>
+
+          <h2>
+            There is<br />
+            something here.
+          </h2>
+
+          <p class="interactive-description" id="interactiveDescription"></p>
+
+          <button class="btn" id="interactiveButton">
+            Open it
+            <span>✦</span>
+          </button>
+
+          <div class="interactive-reveal" id="interactiveReveal">
+            <div class="interactive-reveal-inner">
+              <p class="interactive-message" id="interactiveMessage"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         FINAL
+    ====================================================== -->
+
+      <section class="screen final" data-screen="7">
+        <div class="final-content">
+          <div class="final-symbol">✦</div>
+
+          <p class="eyebrow">One last thing</p>
+
+          <h2 class="final-title">
+            Before<br />
+            you go.
+          </h2>
+
+          <button class="btn" id="finalButton">
+            Read the last message
+            <span>→</span>
+          </button>
+
+          <div class="final-message" id="finalMessage">
+            <div class="final-message-inner">
+              <p id="finalMessageText"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         ENDING
+    ====================================================== -->
+
+      <section class="screen ending" data-screen="8">
+        <div class="ending-content">
+          <div class="ending-symbol">✦</div>
+
+          <p class="eyebrow">The end</p>
+
+          <h2 class="ending-title" id="endingTitle">Until another story.</h2>
+
+          <p class="ending-message" id="endingMessage"></p>
+
+          <p class="ending-from">From <strong id="endingFrom"></strong></p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+      <nav class="navigation" id="navigation">
+        <button class="nav-btn" id="prevButton">←</button>
+
+        <div class="nav-progress">
+          <span id="progressText"> 1 / 9 </span>
+
+          <div class="progress">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <button class="nav-btn" id="nextButton">→</button>
+      </nav>
+    </div>
+
+    <script>
+      /* =========================================================
+       CLIENT DATA
+       ONLY CHANGE THIS PART FOR EVERY CLIENT
+    ========================================================= */
+
+      const clientData = {
+        recipient: "Aisyah",
+
+        sender: "Hakram",
+
+        birthdayDate: "27 September 2026",
+
+        message: `
+Selamat ulang tahun, Aisyah.
+
+Semoga di umur yang baru ini kamu selalu
+diberikan kebahagiaan, kesehatan,
+dan banyak hal baik.
+      `,
+
+        photos: [
+          {
+            image: "assets/photos/photo-1.jpg",
+            caption: "A moment worth remembering.",
+          },
+
+          {
+            image: "assets/photos/photo-2.jpg",
+            caption: "One of those little moments.",
+          },
+
+          {
+            image: "assets/photos/photo-3.jpg",
+            caption: "A memory I still keep.",
+          },
+
+          {
+            image: "assets/photos/photo-4.jpg",
+            caption: "Some days become memories.",
+          },
+        ],
+
+        story: {
+          howWeMet: `
+Sometimes the beginning of a story
+doesn't feel important when it happens.
+        `,
+
+          firstMemory: `
+The first little memory that still stays.
+        `,
+
+          favoriteMoment: `
+Some moments become favorites
+without us realizing it.
+        `,
+
+          whatWeHaveNow: `
+Whatever this story becomes,
+this chapter will always matter.
+        `,
+        },
+
+        timeline: [
+          {
+            year: "2024",
+            date: "A beginning",
+            event: "The first time",
+            description: `
+The beginning of something
+that neither of us expected.
+          `,
+          },
+
+          {
+            year: "2025",
+            date: "Another chapter",
+            event: "A memory",
+            description: `
+Another moment that eventually
+became part of the story.
+          `,
+          },
+
+          {
+            year: "2026",
+            date: "Today",
+            event: "A special day",
+            description: `
+And here we are,
+creating another memory.
+          `,
+          },
+        ],
+
+        letter: `
+Kalau suatu hari nanti kamu melihat kembali
+semua hal yang pernah kita lalui,
+
+semoga kamu juga bisa mengingat
+betapa banyak hal kecil yang ternyata berarti.
+
+Terima kasih sudah menjadi bagian
+dari cerita ini.
+
+Semoga hari ini menjadi salah satu
+hal baik yang kamu ingat.
+      `,
+
+        letterClosing: "With a little warmth.",
+
+        interactive: {
+          description: `
+There is one little thing
+I haven't told you yet.
+        `,
+
+          message: `
+Maybe some things are better
+when they are discovered slowly.
+
+And maybe this is one of them.
+        `,
+        },
+
+        finalMessage: `
+Kalau ada satu hal yang ingin aku sampaikan
+dari semua ini...
+
+aku harap kamu selalu tahu
+kalau keberadaanmu berarti.
+
+Selamat untuk hari ini,
+dan untuk semua hari baik
+yang masih menunggu di depan.
+      `,
+
+        ending: {
+          title: "Until another story.",
+
+          message: `
+A small digital surprise,
+made to hold a few memories
+for a little longer.
+        `,
+        },
+      };
+
+      /* =========================================================
+       PARTICLES
+    ========================================================= */
+
+      const particles = document.getElementById("particles");
+
+      for (let i = 0; i < 24; i++) {
+        const particle = document.createElement("span");
+
+        particle.className = "particle";
+
+        particle.style.left = `${Math.random() * 100}%`;
+
+        particle.style.bottom = `${Math.random() * 35}%`;
+
+        particle.style.animationDuration = `${6 + Math.random() * 8}s`;
+
+        particle.style.animationDelay = `${Math.random() * 8}s`;
+
+        particle.style.transform = `scale(${0.5 + Math.random()})`;
+
+        particles.appendChild(particle);
+      }
+
+      /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+      const screens = [...document.querySelectorAll(".screen")];
+
+      const navigation = document.getElementById("navigation");
+
+      const progressText = document.getElementById("progressText");
+
+      const progressFill = document.getElementById("progressFill");
+
+      let currentScreen = 0;
+
+      /* =========================================================
+       HELPERS
+    ========================================================= */
+
+      function safeText(value) {
+        return value == null ? "" : String(value).trim();
+      }
+
+      function showScreen(index) {
+        if (index < 0 || index >= screens.length) {
+          return;
+        }
+
+        currentScreen = index;
+
+        screens.forEach((screen, i) => {
+          screen.classList.toggle("active", i === currentScreen);
+        });
+
+        const isOpening = currentScreen === 0;
+
+        navigation.classList.toggle("show", !isOpening);
+
+        progressText.textContent = `${currentScreen + 1} / ${screens.length}`;
+
+        progressFill.style.width = `${(currentScreen / (screens.length - 1)) * 100}%`;
+
+        screens[currentScreen].querySelector(".scroll")?.scrollTo({
+          top: 0,
+          behavior: "instant",
+        });
+      }
+
+      function nextScreen() {
+        if (currentScreen < screens.length - 1) {
+          showScreen(currentScreen + 1);
+        }
+      }
+
+      function previousScreen() {
+        if (currentScreen > 0) {
+          showScreen(currentScreen - 1);
+        }
+      }
+
+      /* =========================================================
+       OPENING
+    ========================================================= */
+
+      document.getElementById("openingName").textContent =
+        safeText(clientData.recipient) || "Someone Special";
+
+      document
+        .getElementById("openExperience")
+        .addEventListener("click", () => {
+          nextScreen();
+        });
+
+      /* =========================================================
+       REVEAL
+    ========================================================= */
+
+      document.getElementById("revealName").textContent = safeText(
+        clientData.recipient,
+      );
+
+      document.getElementById("revealSender").textContent = safeText(
+        clientData.sender,
+      );
+
+      document.getElementById("birthdayMessage").textContent = safeText(
+        clientData.message,
+      );
+
+      /* =========================================================
+       OPTIONAL REVEAL IMAGE
+    ========================================================= */
+
+      const revealImage = document.getElementById("revealImage");
+
+      const revealImageContainer = document.getElementById(
+        "revealImageContainer",
+      );
+
+      const firstPhoto = Array.isArray(clientData.photos)
+        ? clientData.photos[0]
+        : null;
+
+      if (firstPhoto?.image) {
+        revealImage.src = firstPhoto.image;
+      } else {
+        revealImageContainer.style.display = "none";
+      }
+
+      /* =========================================================
+       MEMORIES
+    ========================================================= */
+
+      const memoryContainer = document.getElementById("memoryContainer");
+
+      const photos = Array.isArray(clientData.photos)
+        ? clientData.photos.filter((photo) => photo?.image)
+        : [];
+
+      let memoryIndex = 0;
+
+      function renderMemory() {
+        memoryContainer.innerHTML = "";
+
+        if (!photos.length) {
+          memoryContainer.innerHTML = `
+          <div class="memory-empty">
+            Some memories don't need a photograph
+            to remain meaningful.
+          </div>
+        `;
+
+          return;
+        }
+
+        const photo = photos[memoryIndex];
+
+        const stage = document.createElement("div");
+
+        stage.className = "memory-stage";
+
+        stage.innerHTML = `
+        <div class="memory-photo">
+
+          <img
+            src="${photo.image}"
+            alt="Memory ${memoryIndex + 1}"
+          />
+
+          <div class="memory-counter">
+            ${memoryIndex + 1} / ${photos.length}
+          </div>
+
+          ${
+            photos.length > 1
+              ? `
+                <div class="memory-controls">
+
+                  <button
+                    class="memory-arrow"
+                    id="memoryPrev"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    class="memory-arrow"
+                    id="memoryNext"
+                  >
+                    →
+                  </button>
+
+                </div>
+              `
+              : ""
+          }
+
+        </div>
+
+        <p class="memory-caption">
+          ${safeText(photo.caption)}
+        </p>
+      `;
+
+        memoryContainer.appendChild(stage);
+
+        document.getElementById("memoryPrev")?.addEventListener("click", () => {
+          memoryIndex = (memoryIndex - 1 + photos.length) % photos.length;
+
+          renderMemory();
+        });
+
+        document.getElementById("memoryNext")?.addEventListener("click", () => {
+          memoryIndex = (memoryIndex + 1) % photos.length;
+
+          renderMemory();
+        });
+      }
+
+      renderMemory();
+
+      /* =========================================================
+       STORY
+    ========================================================= */
+
+      const storyContainer = document.getElementById("storyContainer");
+
+      const storyItems = [
+        ["01", "How We Met", clientData.story?.howWeMet],
+
+        ["02", "First Memory", clientData.story?.firstMemory],
+
+        ["03", "Favorite Moment", clientData.story?.favoriteMoment],
+
+        ["04", "What We Have Now", clientData.story?.whatWeHaveNow],
+      ].filter((item) => safeText(item[2]));
+
+      storyContainer.innerHTML = storyItems.length
+        ? storyItems
+            .map(
+              (item) => `
+            <article class="story-card">
+
+              <div class="story-label">
+                ${item[0]}
+              </div>
+
+              <h3>
+                ${item[1]}
+              </h3>
+
+              <p>
+                ${safeText(item[2])}
+              </p>
+
+            </article>
+          `,
+            )
+            .join("")
+        : `
+          <div class="memory-empty">
+            Some stories are better left between
+            the people who lived them.
+          </div>
+        `;
+
+      /* =========================================================
+       TIMELINE
+    ========================================================= */
+
+      const timelineContainer = document.getElementById("timelineContainer");
+
+      const timeline = Array.isArray(clientData.timeline)
+        ? clientData.timeline
+            .filter(
+              (item) =>
+                item &&
+                (safeText(item.year) ||
+                  safeText(item.event) ||
+                  safeText(item.description)),
+            )
+            .slice(0, 4)
+        : [];
+
+      if (!timeline.length) {
+        timelineContainer.innerHTML = `
+        <div class="memory-empty">
+          Some moments don't need a date
+          to become part of a story.
+        </div>
+      `;
+      } else {
+        timelineContainer.innerHTML = timeline
+          .map(
+            (item) => `
+
+          <article class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              ${
+                safeText(item.year)
+                  ? `
+                    <div class="timeline-year">
+                      ${safeText(item.year)}
+                    </div>
+                  `
+                  : ""
+              }
+
+              ${
+                safeText(item.date)
+                  ? `
+                    <div class="timeline-date">
+                      ${safeText(item.date)}
+                    </div>
+                  `
+                  : ""
+              }
+
+              ${
+                safeText(item.event)
+                  ? `
+                    <h3>
+                      ${safeText(item.event)}
+                    </h3>
+                  `
+                  : ""
+              }
+
+              ${
+                safeText(item.description)
+                  ? `
+                    <p>
+                      ${safeText(item.description)}
+                    </p>
+                  `
+                  : ""
+              }
+
+            </div>
+
+          </article>
+
+        `,
+          )
+          .join("");
+      }
+
+      /* =========================================================
+       LETTER
+    ========================================================= */
+
+      document.getElementById("letterMessage").textContent = safeText(
+        clientData.letter,
+      );
+
+      document.getElementById("letterSignature").textContent = safeText(
+        clientData.letterClosing,
+      );
+
+      /* =========================================================
+       INTERACTIVE
+    ========================================================= */
+
+      document.getElementById("interactiveDescription").textContent = safeText(
+        clientData.interactive?.description,
+      );
+
+      document.getElementById("interactiveMessage").textContent = safeText(
+        clientData.interactive?.message,
+      );
+
+      document
+        .getElementById("interactiveButton")
+        .addEventListener("click", function () {
+          document.getElementById("interactiveReveal").classList.add("show");
+
+          this.textContent = "Opened ✦";
+
+          this.disabled = true;
+        });
+
+      /* =========================================================
+       FINAL REVEAL
+    ========================================================= */
+
+      document.getElementById("finalMessageText").textContent = safeText(
+        clientData.finalMessage,
+      );
+
+      document
+        .getElementById("finalButton")
+        .addEventListener("click", function () {
+          const message = document.getElementById("finalMessage");
+
+          message.classList.add("show");
+
+          this.style.display = "none";
+        });
+
+      /* =========================================================
+       ENDING
+    ========================================================= */
+
+      document.getElementById("endingTitle").textContent =
+        safeText(clientData.ending?.title) || "Until another story.";
+
+      document.getElementById("endingMessage").textContent = safeText(
+        clientData.ending?.message,
+      );
+
+      document.getElementById("endingFrom").textContent = safeText(
+        clientData.sender,
+      );
+
+      /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+      document
+        .getElementById("prevButton")
+        .addEventListener("click", previousScreen);
+
+      document
+        .getElementById("nextButton")
+        .addEventListener("click", nextScreen);
+
+      /* =========================================================
+       KEYBOARD
+    ========================================================= */
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          nextScreen();
+        }
+
+        if (event.key === "ArrowLeft") {
+          previousScreen();
+        }
+      });
+
+      /* =========================================================
+       INITIAL STATE
+    ========================================================= */
+
+      showScreen(0);
+    </script>
+  </body>
+</html>

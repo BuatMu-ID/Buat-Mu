@@ -1,0 +1,69 @@
+/* =========================================================
+   BUATMU STORY — DARK
+   ========================================================= */
+
+body.theme-dark {
+  --bg: #070709;
+  --bg-soft: #0f0f12;
+
+  --card: #15151a;
+  --card-soft: #1c1c22;
+
+  --cream: #f1f1f1;
+  --white: #ffffff;
+
+  --muted: #96969c;
+  --muted-2: #66666d;
+
+  --accent: #9b9ba4;
+  --accent-soft: rgba(155, 155, 164, 0.12);
+  --accent-glow: rgba(155, 155, 164, 0.25);
+
+  --line: rgba(255, 255, 255, 0.075);
+
+  --orb-1: rgba(255, 255, 255, 0.06);
+  --orb-2: rgba(100, 100, 120, 0.1);
+  --orb-3: rgba(255, 255, 255, 0.04);
+
+  --accent-border: rgba(255, 255, 255, 0.22);
+  --accent-border-soft: rgba(255, 255, 255, 0.1);
+  --accent-border-hover: rgba(255, 255, 255, 0.45);
+
+  --button-bg: rgba(255, 255, 255, 0.055);
+  --button-hover: rgba(255, 255, 255, 0.1);
+  --button-border: rgba(255, 255, 255, 0.18);
+  --button-border-hover: rgba(255, 255, 255, 0.4);
+  --button-text: var(--cream);
+
+  --photo-bg: #09090b;
+  --circle-bg: rgba(255, 255, 255, 0.035);
+  --empty-bg: rgba(255, 255, 255, 0.018);
+
+  --story-card-bg: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.035),
+    rgba(255, 255, 255, 0.008)
+  );
+
+  --story-glow: rgba(255, 255, 255, 0.04);
+
+  --letter-bg: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.008)
+  );
+
+  --surprise-bg: rgba(255, 255, 255, 0.018);
+
+  --audio-bg: rgba(8, 8, 10, 0.8);
+  --nav-bg: rgba(8, 8, 10, 0.8);
+  --nav-dot: rgba(255, 255, 255, 0.16);
+
+  --accent-line: rgba(255, 255, 255, 0.3);
+
+  --particle: rgba(255, 255, 255, 0.45);
+
+  --noise-opacity: 0.025;
+
+  --card-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}

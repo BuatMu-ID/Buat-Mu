@@ -1,0 +1,181 @@
+/* =========================================================
+   BUATMU — SWEET
+   THEME: ELEGANT
+   ========================================================= */
+
+body.theme-elegant {
+  --bg: #f4f2ee;
+  --bg-soft: #ebe8e1;
+
+  --card: rgba(255, 255, 255, 0.7);
+  --card-soft: rgba(255, 255, 255, 0.5);
+
+  --cream: #282621;
+  --white: #ffffff;
+
+  --muted: #77736b;
+  --muted-soft: #99948b;
+
+  --accent: #9b8660;
+  --accent-soft: rgba(155, 134, 96, 0.14);
+  --accent-glow: rgba(155, 134, 96, 0.25);
+
+  --border: rgba(45, 42, 36, 0.13);
+
+  --shadow: 0 24px 70px rgba(45, 42, 36, 0.1);
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+body.theme-elegant {
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(217, 205, 182, 0.38),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(230, 225, 213, 0.4),
+      transparent 32%
+    ),
+    var(--bg);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+body.theme-elegant .opening-card,
+body.theme-elegant .letter-card,
+body.theme-elegant .ending-card,
+body.theme-elegant .photo-card {
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+body.theme-elegant .opening-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.84),
+    rgba(241, 238, 231, 0.64)
+  );
+}
+
+/* =========================================================
+   LETTER
+   ========================================================= */
+
+body.theme-elegant .letter-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.84),
+    rgba(241, 238, 231, 0.62)
+  );
+}
+
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+body.theme-elegant .ending-card {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(217, 205, 182, 0.36),
+      transparent 45%
+    ),
+    rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+body.theme-elegant .photo-card {
+  background: rgba(255, 255, 255, 0.66);
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+body.theme-elegant .btn {
+  color: #f8f6f1;
+
+  background: #282621;
+
+  box-shadow: 0 12px 32px rgba(40, 38, 33, 0.15);
+}
+
+body.theme-elegant .btn:hover {
+  background: #806b48;
+}
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+body.theme-elegant .audio-button {
+  color: var(--cream);
+
+  background: rgba(255, 255, 255, 0.76);
+
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   ORBS
+   ========================================================= */
+
+body.theme-elegant .orb-1 {
+  background: rgba(217, 205, 182, 0.46);
+}
+
+body.theme-elegant .orb-2 {
+  background: rgba(194, 184, 162, 0.34);
+}
+
+body.theme-elegant .orb-3 {
+  background: rgba(230, 225, 213, 0.42);
+}
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+body.theme-elegant .particle {
+  background: rgba(70, 65, 55, 0.24);
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+body.theme-elegant .navigation {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+body.theme-elegant .letter-message,
+body.theme-elegant .letter-greeting,
+body.theme-elegant .letter-signature,
+body.theme-elegant .ending-from {
+  color: var(--cream);
+}

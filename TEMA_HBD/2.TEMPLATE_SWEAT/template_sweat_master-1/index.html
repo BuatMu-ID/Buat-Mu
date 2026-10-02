@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>Buatmu — Sweet</title>
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- =====================================================
+         SWEET THEMES
+    ====================================================== -->
+    <link rel="stylesheet" href="css/themes/soft.css" />
+    <link rel="stylesheet" href="css/themes/elegant.css" />
+    <link rel="stylesheet" href="css/themes/dark.css" />
+  </head>
+
+  <body class="theme-soft">
+    <!-- =====================================================
+         AMBIENT
+    ====================================================== -->
+
+    <div class="ambient">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="noise"></div>
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <main class="app">
+      <!-- ===================================================
+           1. OPENING
+      =================================================== -->
+
+      <section class="screen active" id="screen-opening">
+        <div class="container">
+          <div class="opening-card">
+            <div class="opening-mark">✦</div>
+
+            <div class="eyebrow">A little surprise</div>
+
+            <h1 class="title">
+              Hey,
+              <span id="openingRecipient">Aisyah</span>.
+            </h1>
+
+            <p class="opening-message">
+              Someone made a little surprise just for you.
+            </p>
+
+            <button class="btn" onclick="goToScreen(1)">Open</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           2. BIRTHDAY REVEAL
+      =================================================== -->
+
+      <section class="screen" id="screen-reveal">
+        <div class="container">
+          <div class="reveal-card">
+            <div class="reveal-icon">🎂</div>
+
+            <div class="eyebrow">Today is your day</div>
+
+            <h2 class="reveal-title">
+              Happy Birthday,
+              <span id="revealRecipient">Aisyah</span>
+            </h2>
+
+            <p class="reveal-date" id="revealDate">27 September 2026</p>
+
+            <p class="reveal-message">
+              A little something made to celebrate this special day.
+            </p>
+
+            <button class="btn" onclick="goToScreen(2)">Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           3. MEMORIES
+      =================================================== -->
+
+      <section class="screen" id="screen-memories">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">Memories</div>
+
+            <h2 class="section-title">Little moments.</h2>
+
+            <p class="section-description">
+              A few memories collected in one little place.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <div class="gallery-track" id="galleryTrack"></div>
+
+            <div class="gallery-count" id="galleryCount"></div>
+          </div>
+
+          <div style="margin-top: 28px; text-align: center">
+            <button class="btn" onclick="goToScreen(3)">Read the letter</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           4. LETTER
+      =================================================== -->
+
+      <section class="screen" id="screen-letter">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">A letter for you</div>
+
+            <h2 class="section-title">Something from the heart.</h2>
+          </div>
+
+          <article class="letter-card">
+            <div class="letter-top">
+              <div class="letter-label">Personal Letter</div>
+
+              <div class="letter-date" id="letterDate">27 September 2026</div>
+            </div>
+
+            <div class="letter-greeting" id="letterGreeting">Dear Aisyah,</div>
+
+            <div class="letter-message" id="letterMessage"></div>
+
+            <div class="letter-closing" id="letterClosing"></div>
+
+            <div class="letter-signature" id="letterSignature"></div>
+          </article>
+
+          <div style="margin-top: 28px; text-align: center">
+            <button class="btn" onclick="goToScreen(4)">One last thing</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           5. ENDING
+      =================================================== -->
+
+      <section class="screen" id="screen-ending">
+        <div class="container">
+          <div class="ending-card">
+            <div class="ending-mark">✦</div>
+
+            <div class="eyebrow">That's all</div>
+
+            <h2 class="ending-title" id="endingTitle">
+              Keep this little moment.
+            </h2>
+
+            <p class="ending-message" id="endingMessage"></p>
+
+            <div class="ending-from" id="endingFrom"></div>
+
+            <div class="brand">Made with Buatmu</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         AUDIO
+    ====================================================== -->
+
+    <div class="audio-control" id="audioControl" style="display: none">
+      <button
+        class="audio-button"
+        id="audioButton"
+        onclick="toggleAudio()"
+        aria-label="Toggle music"
+      >
+        ♪
+      </button>
+    </div>
+
+    <audio id="backgroundAudio" loop preload="none"></audio>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navigation" aria-label="Page navigation">
+      <button
+        class="nav-dot active"
+        onclick="goToScreen(0)"
+        aria-label="Opening"
+      ></button>
+
+      <button
+        class="nav-dot"
+        onclick="goToScreen(1)"
+        aria-label="Birthday"
+      ></button>
+
+      <button
+        class="nav-dot"
+        onclick="goToScreen(2)"
+        aria-label="Memories"
+      ></button>
+
+      <button
+        class="nav-dot"
+        onclick="goToScreen(3)"
+        aria-label="Letter"
+      ></button>
+
+      <button
+        class="nav-dot"
+        onclick="goToScreen(4)"
+        aria-label="Ending"
+      ></button>
+    </nav>
+
+    <!-- =====================================================
+         SWEET MASTER JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+      /* =====================================================
+         SWEET MASTER
+         BUATMU
+
+         FLOW:
+
+         OPENING
+            ↓
+         BIRTHDAY REVEAL
+            ↓
+         MEMORIES
+            ↓
+         LETTER
+            ↓
+         ENDING
+
+         MAX PHOTOS: 7
+      ===================================================== */
+
+      /* =====================================================
+         CLIENT DATA
+      ===================================================== */
+
+      const clientData = {
+        // ===================================================
+        // IDENTITY
+        // ===================================================
+
+        recipient: "Aisyah",
+
+        sender: "Hakram",
+
+        birthdayDate: "27 September 2026",
+
+        // ===================================================
+        // THEME
+        //
+        // Options:
+        //
+        // "soft"
+        // "elegant"
+        // "dark"
+        // ===================================================
+
+        theme: "dark",
+
+        // ===================================================
+        // LETTER
+        // ===================================================
+
+        letter: {
+          greeting: "Dear Aisyah,",
+
+          message: `
+
+Selamat ulang tahun, Aisyah.
+
+Semoga di umur yang baru ini kamu selalu
+diberikan kebahagiaan, kesehatan, dan banyak
+hal baik.
+
+Semoga semua hal yang kamu harapkan perlahan
+bisa menjadi kenyataan.
+
+Terima kasih untuk semua momen kecil
+yang pernah menjadi bagian dari perjalanan ini.
+
+          `,
+
+          closing: `
+
+Nikmati hari ini dan semua hal baik
+yang datang bersamanya.
+
+Semoga hari ini menjadi salah satu
+hari yang kamu ingat dengan senyum.
+
+          `,
+
+          signature: "— Hakram",
+        },
+
+        // ===================================================
+        // MEMORIES
+        //
+        // MAX 7
+        // ===================================================
+
+        photos: [
+          {
+            image: "assets/photos/photo-1.jpg",
+            caption: "A little moment worth remembering.",
+          },
+
+          {
+            image: "assets/photos/photo-2.jpg",
+            caption: "One of those moments that stayed.",
+          },
+
+          {
+            image: "assets/photos/photo-3.jpg",
+            caption: "A small memory, kept here.",
+          },
+
+          {
+            image: "assets/photos/photo-4.jpg",
+            caption: "Another little chapter.",
+          },
+
+          {
+            image: "assets/photos/photo-5.jpg",
+            caption: "A moment worth keeping.",
+          },
+
+          {
+            image: "assets/photos/photo-6.jpg",
+            caption: "Some memories simply stay.",
+          },
+
+          {
+            image: "assets/photos/photo-7.jpg",
+            caption: "And one more for the collection.",
+          },
+        ],
+
+        // ===================================================
+        // AUDIO
+        //
+        // Optional.
+        //
+        // If empty:
+        // audio button will not appear.
+        // ===================================================
+
+        audio: {
+          enabled: true,
+
+          src: "assets/audio/music.mp3",
+        },
+
+        // ===================================================
+        // ENDING
+        // ===================================================
+
+        ending: {
+          title: "Keep this little moment.",
+
+          message: `
+
+Semoga hari ini menjadi salah satu
+hari kecil yang kamu ingat dengan senyum.
+
+Happy Birthday.
+
+          `,
+
+          from: "— Hakram",
+        },
+      };
+
+      /* =====================================================
+         HELPERS
+      ===================================================== */
+
+      function safeText(value, fallback = "") {
+        if (value === null || value === undefined) {
+          return fallback;
+        }
+
+        return String(value).trim();
+      }
+
+      /* =====================================================
+         APPLY THEME
+      ===================================================== */
+
+      function applyTheme() {
+        const theme = safeText(clientData.theme, "soft").toLowerCase();
+
+        document.body.classList.remove(
+          "theme-soft",
+          "theme-elegant",
+          "theme-dark",
+        );
+
+        if (theme === "elegant") {
+          document.body.classList.add("theme-elegant");
+
+          return;
+        }
+
+        if (theme === "dark") {
+          document.body.classList.add("theme-dark");
+
+          return;
+        }
+
+        document.body.classList.add("theme-soft");
+      }
+
+      /* =====================================================
+         PARTICLES
+      ===================================================== */
+
+      function createParticles() {
+        const container = document.getElementById("particles");
+
+        if (!container) return;
+
+        const totalParticles = 26;
+
+        for (let i = 0; i < totalParticles; i++) {
+          const particle = document.createElement("span");
+
+          particle.className = "particle";
+
+          particle.style.left = `${Math.random() * 100}%`;
+
+          particle.style.animationDuration = `${8 + Math.random() * 10}s`;
+
+          particle.style.animationDelay = `${Math.random() * -15}s`;
+
+          particle.style.opacity = `${0.15 + Math.random() * 0.35}`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      /* =====================================================
+         RENDER IDENTITY
+      ===================================================== */
+
+      function renderIdentity() {
+        const recipient = safeText(clientData.recipient, "Someone");
+
+        const date = safeText(clientData.birthdayDate);
+
+        document.getElementById("openingRecipient").textContent = recipient;
+
+        document.getElementById("revealRecipient").textContent = recipient;
+
+        document.getElementById("revealDate").textContent = date;
+
+        document.getElementById("letterDate").textContent = date;
+      }
+
+      /* =====================================================
+         RENDER GALLERY
+         MAX 7 PHOTOS
+      ===================================================== */
+
+      function renderGallery() {
+        const gallery = document.getElementById("galleryTrack");
+
+        const count = document.getElementById("galleryCount");
+
+        if (!gallery) return;
+
+        gallery.innerHTML = "";
+
+        const photos = Array.isArray(clientData.photos)
+          ? clientData.photos
+              .filter((photo) => photo && safeText(photo.image))
+              .slice(0, 7)
+          : [];
+
+        if (photos.length === 0) {
+          gallery.innerHTML = `
+            <div class="photo-empty">
+              No memories added yet.
+            </div>
+          `;
+
+          count.textContent = "";
+
+          return;
+        }
+
+        photos.forEach((photo) => {
+          const card = document.createElement("article");
+
+          card.className = "photo-card";
+
+          const image = document.createElement("img");
+
+          image.src = safeText(photo.image);
+
+          image.alt = safeText(photo.caption, "Memory");
+
+          image.loading = "lazy";
+
+          image.onerror = function () {
+            this.style.display = "none";
+
+            const fallback = document.createElement("div");
+
+            fallback.className = "photo-empty";
+
+            fallback.style.gridColumn = "auto";
+
+            fallback.textContent = "Photo unavailable.";
+
+            card.prepend(fallback);
+          };
+
+          card.appendChild(image);
+
+          const caption = safeText(photo.caption);
+
+          if (caption) {
+            const captionElement = document.createElement("div");
+
+            captionElement.className = "photo-caption";
+
+            captionElement.textContent = caption;
+
+            card.appendChild(captionElement);
+          }
+
+          gallery.appendChild(card);
+        });
+
+        count.textContent = `${photos.length} ${
+          photos.length === 1 ? "memory" : "memories"
+        }`;
+      }
+
+      /* =====================================================
+         RENDER LETTER
+      ===================================================== */
+
+      function renderLetter() {
+        const letter = clientData.letter || {};
+
+        document.getElementById("letterGreeting").textContent = safeText(
+          letter.greeting,
+          `Dear ${safeText(clientData.recipient, "there")},`,
+        );
+
+        document.getElementById("letterMessage").textContent = safeText(
+          letter.message,
+        );
+
+        document.getElementById("letterClosing").textContent = safeText(
+          letter.closing,
+        );
+
+        document.getElementById("letterSignature").textContent = safeText(
+          letter.signature,
+          clientData.sender ? `— ${clientData.sender}` : "",
+        );
+      }
+
+      /* =====================================================
+         RENDER AUDIO
+      ===================================================== */
+
+      function renderAudio() {
+        const audio = clientData.audio || {};
+
+        const audioControl = document.getElementById("audioControl");
+
+        const audioElement = document.getElementById("backgroundAudio");
+
+        const audioButton = document.getElementById("audioButton");
+
+        const enabled = audio.enabled === true;
+
+        const source = safeText(audio.src);
+
+        if (!enabled || !source) {
+          audioControl.style.display = "none";
+
+          return;
+        }
+
+        audioElement.src = source;
+
+        audioControl.style.display = "block";
+
+        audioButton.classList.remove("playing");
+      }
+
+      /* =====================================================
+         TOGGLE AUDIO
+      ===================================================== */
+
+      function toggleAudio() {
+        const audio = document.getElementById("backgroundAudio");
+
+        const button = document.getElementById("audioButton");
+
+        if (audio.paused) {
+          audio
+            .play()
+            .then(() => {
+              button.classList.add("playing");
+            })
+            .catch(() => {
+              button.classList.remove("playing");
+            });
+        } else {
+          audio.pause();
+
+          button.classList.remove("playing");
+        }
+      }
+
+      /* =====================================================
+         RENDER ENDING
+      ===================================================== */
+
+      function renderEnding() {
+        const ending = clientData.ending || {};
+
+        document.getElementById("endingTitle").textContent = safeText(
+          ending.title,
+          "Keep this little moment.",
+        );
+
+        document.getElementById("endingMessage").textContent = safeText(
+          ending.message,
+        );
+
+        document.getElementById("endingFrom").textContent = safeText(
+          ending.from,
+          clientData.sender ? `— ${clientData.sender}` : "",
+        );
+      }
+
+      /* =====================================================
+         SCREEN NAVIGATION
+      ===================================================== */
+
+      let currentScreen = 0;
+
+      function goToScreen(index) {
+        const screens = document.querySelectorAll(".screen");
+
+        const dots = document.querySelectorAll(".nav-dot");
+
+        if (index < 0 || index >= screens.length) {
+          return;
+        }
+
+        screens.forEach((screen, screenIndex) => {
+          screen.classList.toggle("active", screenIndex === index);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === index);
+        });
+
+        currentScreen = index;
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      /* =====================================================
+         KEYBOARD NAVIGATION
+      ===================================================== */
+
+      document.addEventListener("keydown", (event) => {
+        const totalScreens = document.querySelectorAll(".screen").length;
+
+        if (event.key === "ArrowRight" && currentScreen < totalScreens - 1) {
+          goToScreen(currentScreen + 1);
+        }
+
+        if (event.key === "ArrowLeft" && currentScreen > 0) {
+          goToScreen(currentScreen - 1);
+        }
+      });
+
+      /* =====================================================
+         INITIALIZE
+      ===================================================== */
+
+      applyTheme();
+
+      createParticles();
+
+      renderIdentity();
+
+      renderGallery();
+
+      renderLetter();
+
+      renderAudio();
+
+      renderEnding();
+    </script>
+  </body>
+</html>

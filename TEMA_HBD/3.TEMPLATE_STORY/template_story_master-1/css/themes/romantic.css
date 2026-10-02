@@ -1,0 +1,69 @@
+/* =========================================================
+   BUATMU STORY — ROMANTIC
+   ========================================================= */
+
+body.theme-romantic {
+  --bg: #140d11;
+  --bg-soft: #1c1117;
+
+  --card: #24151c;
+  --card-soft: #2d1a23;
+
+  --cream: #f8eee9;
+  --white: #fffaf7;
+
+  --muted: #b9a6a9;
+  --muted-2: #827074;
+
+  --accent: #d8899d;
+  --accent-soft: rgba(216, 137, 157, 0.15);
+  --accent-glow: rgba(216, 137, 157, 0.3);
+
+  --line: rgba(255, 255, 255, 0.085);
+
+  --orb-1: rgba(216, 137, 157, 0.2);
+  --orb-2: rgba(155, 90, 130, 0.14);
+  --orb-3: rgba(216, 137, 157, 0.1);
+
+  --accent-border: rgba(216, 137, 157, 0.44);
+  --accent-border-soft: rgba(216, 137, 157, 0.19);
+  --accent-border-hover: rgba(216, 137, 157, 0.68);
+
+  --button-bg: rgba(216, 137, 157, 0.08);
+  --button-hover: rgba(216, 137, 157, 0.16);
+  --button-border: rgba(216, 137, 157, 0.37);
+  --button-border-hover: rgba(216, 137, 157, 0.68);
+  --button-text: var(--cream);
+
+  --photo-bg: #120c10;
+  --circle-bg: rgba(255, 255, 255, 0.035);
+  --empty-bg: rgba(255, 255, 255, 0.025);
+
+  --story-card-bg: linear-gradient(
+    145deg,
+    rgba(216, 137, 157, 0.08),
+    rgba(255, 255, 255, 0.015)
+  );
+
+  --story-glow: rgba(216, 137, 157, 0.1);
+
+  --letter-bg: linear-gradient(
+    145deg,
+    rgba(216, 137, 157, 0.08),
+    rgba(255, 255, 255, 0.015)
+  );
+
+  --surprise-bg: rgba(216, 137, 157, 0.045);
+
+  --audio-bg: rgba(25, 13, 18, 0.76);
+  --nav-bg: rgba(25, 13, 18, 0.76);
+  --nav-dot: rgba(255, 255, 255, 0.18);
+
+  --accent-line: rgba(216, 137, 157, 0.5);
+
+  --particle: rgba(255, 225, 232, 0.65);
+
+  --noise-opacity: 0.035;
+
+  --card-shadow: 0 20px 75px rgba(15, 3, 8, 0.3);
+}

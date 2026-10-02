@@ -1,0 +1,3601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>Buatmu — Signature</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================================================
+         BUATMU SIGNATURE
+         COMPLETE GIFT REVEAL EXPERIENCE
+         SINGLE FILE TEMPLATE
+      ========================================================= */
+
+      :root {
+        --bg: #0d0d10;
+        --bg-soft: #15151a;
+        --card: #1b1b21;
+        --card-soft: #202026;
+
+        --cream: #f7f1e7;
+        --muted: #aaa5a0;
+        --white: #ffffff;
+
+        --gold: #d8b36a;
+        --gold-light: #f0d59b;
+
+        --accent-rgb: 216, 179, 106;
+
+        --screen-main: #0d0d10;
+        --screen-soft: #15151a;
+
+        --card-gradient-start: #202026;
+        --card-gradient-end: #16161b;
+
+        --radius: 24px;
+
+        --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* =========================================================
+         THEMES
+      ========================================================= */
+
+      /* 01 — MIDNIGHT */
+      [data-theme="midnight"] {
+        --bg: #0d0d10;
+        --bg-soft: #15151a;
+        --card: #1b1b21;
+        --card-soft: #202026;
+
+        --cream: #f7f1e7;
+        --muted: #aaa5a0;
+
+        --gold: #d8b36a;
+        --gold-light: #f0d59b;
+
+        --accent-rgb: 216, 179, 106;
+
+        --screen-main: #0d0d10;
+        --screen-soft: #15151a;
+
+        --card-gradient-start: #202026;
+        --card-gradient-end: #16161b;
+      }
+
+      /* 02 — SOFT */
+      [data-theme="soft"] {
+        --bg: #171518;
+        --bg-soft: #211d20;
+        --card: #282225;
+        --card-soft: #30292c;
+
+        --cream: #f8eee9;
+        --muted: #b9aeb0;
+
+        --gold: #d9a7a2;
+        --gold-light: #f2c9c4;
+
+        --accent-rgb: 217, 167, 162;
+
+        --screen-main: #171518;
+        --screen-soft: #211d20;
+
+        --card-gradient-start: #30292c;
+        --card-gradient-end: #241f22;
+      }
+
+      /* 03 — ELEGANT */
+      [data-theme="elegant"] {
+        --bg: #11100e;
+        --bg-soft: #181612;
+        --card: #211e19;
+        --card-soft: #29251f;
+
+        --cream: #f4eee2;
+        --muted: #aaa296;
+
+        --gold: #c9a86a;
+        --gold-light: #e5c991;
+
+        --accent-rgb: 201, 168, 106;
+
+        --screen-main: #11100e;
+        --screen-soft: #181612;
+
+        --card-gradient-start: #29251f;
+        --card-gradient-end: #1d1a16;
+      }
+
+      /* 04 — DARK */
+      [data-theme="dark"] {
+        --bg: #050506;
+        --bg-soft: #0b0b0e;
+        --card: #111114;
+        --card-soft: #18181c;
+
+        --cream: #eeeeee;
+        --muted: #85858c;
+
+        --gold: #8f8f98;
+        --gold-light: #d4d4da;
+
+        --accent-rgb: 143, 143, 152;
+
+        --screen-main: #050506;
+        --screen-soft: #0b0b0e;
+
+        --card-gradient-start: #18181c;
+        --card-gradient-end: #0e0e11;
+      }
+
+      /* 05 — DREAMY */
+      [data-theme="dreamy"] {
+        --bg: #151421;
+        --bg-soft: #1e1c2c;
+        --card: #29273a;
+        --card-soft: #332f47;
+
+        --cream: #f5f0ff;
+        --muted: #b9b2ca;
+
+        --gold: #b8a4e8;
+        --gold-light: #d9cdf8;
+
+        --accent-rgb: 184, 164, 232;
+
+        --screen-main: #151421;
+        --screen-soft: #1e1c2c;
+
+        --card-gradient-start: #332f47;
+        --card-gradient-end: #252333;
+      }
+
+      /* 06 — CINEMATIC */
+      [data-theme="cinematic"] {
+        --bg: #090c12;
+        --bg-soft: #10151d;
+        --card: #171d27;
+        --card-soft: #1d2531;
+
+        --cream: #edf2f7;
+        --muted: #9ca8b7;
+
+        --gold: #7fa8d5;
+        --gold-light: #b6d3ef;
+
+        --accent-rgb: 127, 168, 213;
+
+        --screen-main: #090c12;
+        --screen-soft: #10151d;
+
+        --card-gradient-start: #1d2531;
+        --card-gradient-end: #141a23;
+      }
+
+      /* 07 — ROSE */
+      [data-theme="rose"] {
+        --bg: #160f13;
+        --bg-soft: #21151b;
+        --card: #2b1b23;
+        --card-soft: #35212a;
+
+        --cream: #f9edf1;
+        --muted: #c0aab2;
+
+        --gold: #d38ca5;
+        --gold-light: #efb5c9;
+
+        --accent-rgb: 211, 140, 165;
+
+        --screen-main: #160f13;
+        --screen-soft: #21151b;
+
+        --card-gradient-start: #35212a;
+        --card-gradient-end: #271920;
+      }
+
+      /* =========================================================
+         RESET
+      ========================================================= */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        background: #050506;
+        color: var(--cream);
+
+        font-family: "DM Sans", sans-serif;
+
+        overflow: hidden;
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+
+        transition:
+          background 0.6s ease,
+          color 0.6s ease;
+      }
+
+      button,
+      input,
+      textarea {
+        font-family: inherit;
+      }
+
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      /* =========================================================
+         EXPERIENCE
+      ========================================================= */
+
+      .experience {
+        position: relative;
+
+        width: 100%;
+        max-width: 480px;
+
+        height: 100vh;
+        height: 100dvh;
+
+        margin: 0 auto;
+
+        overflow: hidden;
+
+        background: var(--bg);
+
+        transition: background 0.6s ease;
+      }
+
+      /* =========================================================
+         SCREEN SYSTEM
+      ========================================================= */
+
+      .screen {
+        position: absolute;
+        inset: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: scale(1.02);
+
+        transition:
+          opacity 0.6s ease,
+          transform 0.7s ease,
+          visibility 0.6s ease;
+      }
+
+      .screen.active {
+        opacity: 1;
+        visibility: visible;
+
+        transform: scale(1);
+      }
+
+      /* =========================================================
+         COMMON
+      ========================================================= */
+
+      .content {
+        width: 100%;
+
+        padding: 70px 26px 110px;
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        scrollbar-width: none;
+      }
+
+      .content::-webkit-scrollbar {
+        display: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+
+        color: var(--gold);
+
+        font-size: 11px;
+        font-weight: 700;
+
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        overflow-wrap: break-word;
+      }
+
+      /* =========================================================
+         BUTTON
+      ========================================================= */
+
+      .primary-button {
+        width: 100%;
+
+        border: 1px solid rgba(var(--accent-rgb), 0.45);
+        border-radius: 999px;
+
+        padding: 15px 20px;
+
+        background: rgba(var(--accent-rgb), 0.08);
+        color: var(--cream);
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .primary-button:hover {
+        background: rgba(var(--accent-rgb), 0.18);
+        border-color: rgba(var(--accent-rgb), 0.65);
+      }
+
+      .primary-button:active {
+        transform: scale(0.97);
+      }
+
+      .primary-button span {
+        transition: transform 0.25s ease;
+      }
+
+      .primary-button:hover span {
+        transform: translateX(4px);
+      }
+
+      /* =========================================================
+         LOADING
+      ========================================================= */
+
+      .loading-screen {
+        align-items: center;
+        justify-content: center;
+
+        background: radial-gradient(
+          circle at center,
+          var(--card-soft) 0%,
+          var(--bg) 55%,
+          #070708 100%
+        );
+      }
+
+      .loading-icon {
+        width: 90px;
+        height: 90px;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(var(--accent-rgb), 0.08);
+
+        border: 1px solid rgba(var(--accent-rgb), 0.25);
+
+        margin-bottom: 28px;
+
+        animation: breathe 2s infinite ease-in-out;
+      }
+
+      .loading-icon span {
+        color: var(--gold-light);
+        font-size: 28px;
+      }
+
+      .loading-title {
+        margin: 0;
+
+        text-align: center;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 23px;
+        line-height: 1.35;
+      }
+
+      .loading-small {
+        margin-top: 15px;
+
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .loading-line {
+        width: 120px;
+        height: 2px;
+
+        margin-top: 26px;
+
+        overflow: hidden;
+
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .loading-progress {
+        width: 0;
+        height: 100%;
+
+        background: var(--gold);
+
+        animation: loading 2.3s ease forwards;
+      }
+
+      @keyframes loading {
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes breathe {
+        50% {
+          transform: scale(1.06);
+        }
+      }
+
+      /* =========================================================
+         GIFT OPENING
+      ========================================================= */
+
+      .gift-screen {
+        align-items: center;
+        justify-content: center;
+
+        background: radial-gradient(
+          circle at center,
+          var(--card-soft) 0%,
+          var(--bg-soft) 45%,
+          var(--bg) 100%
+        );
+
+        cursor: pointer;
+      }
+
+      .gift-background-glow {
+        position: absolute;
+
+        width: 260px;
+        height: 260px;
+
+        border-radius: 50%;
+
+        background: rgba(var(--accent-rgb), 0.08);
+
+        filter: blur(50px);
+      }
+
+      .gift-heading {
+        position: absolute;
+
+        top: 17%;
+
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 5px;
+
+        transition: opacity 0.4s ease;
+      }
+
+      .gift-heading span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .gift-heading strong {
+        color: var(--cream);
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 28px;
+        font-weight: 500;
+
+        font-style: italic;
+      }
+
+      .gift-container {
+        position: relative;
+
+        width: 210px;
+        height: 210px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: transform 0.3s ease;
+      }
+
+      .gift-container:hover {
+        transform: translateY(-5px);
+      }
+
+      .gift-shadow {
+        position: absolute;
+
+        bottom: 12px;
+
+        width: 170px;
+        height: 24px;
+
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.5);
+
+        filter: blur(10px);
+      }
+
+      .gift-box {
+        position: relative;
+
+        width: 150px;
+        height: 130px;
+      }
+
+      .gift-body {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 150px;
+        height: 105px;
+
+        overflow: hidden;
+
+        border-radius: 5px 5px 14px 14px;
+
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+
+        box-shadow:
+          inset -15px -10px 25px rgba(0, 0, 0, 0.2),
+          0 18px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .ribbon-vertical {
+        position: absolute;
+
+        left: 50%;
+        top: 0;
+
+        width: 27px;
+        height: 100%;
+
+        transform: translateX(-50%);
+
+        background: linear-gradient(
+          90deg,
+          var(--gold-light),
+          var(--gold),
+          var(--gold-light)
+        );
+      }
+
+      .gift-lid {
+        position: absolute;
+
+        left: -7px;
+        top: 20px;
+
+        width: 164px;
+        height: 34px;
+
+        z-index: 4;
+
+        border-radius: 5px;
+
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+
+        box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+
+        transition: var(--transition);
+      }
+
+      .ribbon-horizontal {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        top: 8px;
+
+        height: 18px;
+
+        background: var(--gold);
+      }
+
+      .bow {
+        position: absolute;
+
+        z-index: 5;
+
+        left: 50%;
+        top: 0;
+
+        width: 90px;
+        height: 60px;
+
+        transform: translateX(-50%);
+
+        transition: var(--transition);
+      }
+
+      .bow-left,
+      .bow-right {
+        position: absolute;
+
+        top: 7px;
+
+        width: 46px;
+        height: 42px;
+
+        border-radius: 80% 30% 70% 30%;
+
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      }
+
+      .bow-left {
+        left: 0;
+        transform: rotate(-25deg);
+      }
+
+      .bow-right {
+        right: 0;
+        transform: rotate(25deg) scaleX(-1);
+      }
+
+      .bow-center {
+        position: absolute;
+
+        left: 50%;
+        top: 18px;
+
+        width: 22px;
+        height: 22px;
+
+        transform: translateX(-50%);
+
+        border-radius: 50%;
+
+        background: var(--gold-light);
+      }
+
+      .gift-hint {
+        position: absolute;
+
+        bottom: 10%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 8px;
+
+        color: var(--muted);
+
+        font-size: 12px;
+
+        transition: opacity 0.4s ease;
+      }
+
+      .hint-arrow {
+        color: var(--gold-light);
+
+        font-size: 23px;
+
+        animation: floatUp 1.4s infinite ease-in-out;
+      }
+
+      @keyframes floatUp {
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+
+      .gift-screen.opening .gift-lid {
+        transform: translateY(-90px) rotate(-12deg);
+        opacity: 0;
+      }
+
+      .gift-screen.opening .bow {
+        transform: translate(-50%, -80px) rotate(-10deg);
+        opacity: 0;
+      }
+
+      .gift-screen.opening .gift-container {
+        transform: scale(1.08);
+      }
+
+      .gift-screen.opening .gift-hint,
+      .gift-screen.opening .gift-heading {
+        opacity: 0;
+      }
+
+      /* =========================================================
+         REVEAL
+      ========================================================= */
+
+      .reveal-screen {
+        background: linear-gradient(160deg, var(--card-soft), var(--bg));
+
+        overflow-y: auto;
+      }
+
+      .reveal-wrapper {
+        width: 100%;
+
+        padding: 70px 24px 100px;
+      }
+
+      .reveal-wrapper h1 {
+        margin: 0 0 28px;
+
+        font-size: 36px;
+        line-height: 1.12;
+      }
+
+      .reveal-wrapper h1 span {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+
+      .reveal-card {
+        overflow: hidden;
+
+        border-radius: var(--radius);
+
+        background: var(--card);
+
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .reveal-photo {
+        width: 100%;
+        height: 270px;
+
+        overflow: hidden;
+
+        background: linear-gradient(145deg, var(--card-soft), var(--bg));
+      }
+
+      .reveal-photo img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+
+        transition:
+          opacity 0.35s ease,
+          transform 0.6s ease;
+      }
+
+      .reveal-photo img:not([src]),
+      .reveal-photo img[src=""] {
+        display: none;
+      }
+
+      .reveal-content {
+        padding: 24px 22px 25px;
+      }
+
+      .from {
+        margin: 0 0 15px;
+
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .from strong {
+        color: var(--cream);
+      }
+
+      .message {
+        margin: 0 0 25px;
+
+        white-space: pre-line;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      /* =========================================================
+         MEMORIES
+      ========================================================= */
+
+      .photo-screen {
+        background: var(--screen-soft);
+        overflow-y: auto;
+      }
+
+      .photo-screen h2 {
+        margin: 0 0 30px;
+
+        font-size: 37px;
+        line-height: 1.1;
+      }
+
+      .memory-intro-card,
+      .memory-card {
+        position: relative;
+
+        padding: 30px 25px;
+
+        margin-bottom: 25px;
+
+        border-radius: var(--radius);
+
+        background: linear-gradient(
+          145deg,
+          var(--card-gradient-start),
+          var(--card-gradient-end)
+        );
+
+        border: 1px solid rgba(var(--accent-rgb), 0.18);
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .memory-number {
+        margin-bottom: 22px;
+
+        color: var(--gold);
+
+        font-size: 11px;
+        letter-spacing: 0.2em;
+      }
+
+      .memory-intro-card p,
+      .memory-card p {
+        margin: 0;
+
+        white-space: pre-line;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 22px;
+        line-height: 1.5;
+      }
+
+      .memory-date {
+        margin-top: 22px;
+
+        color: var(--muted);
+
+        font-size: 11px;
+        letter-spacing: 0.1em;
+      }
+
+      /* =========================================================
+         PHOTO GALLERY
+      ========================================================= */
+
+      .photo-stage {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        margin: 0 -5px 18px;
+      }
+
+      .photo-frame {
+        position: relative;
+
+        width: 100%;
+        height: 400px;
+
+        overflow: hidden;
+
+        border-radius: 22px;
+
+        background: linear-gradient(145deg, var(--card), var(--bg));
+
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      }
+
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+
+        transition:
+          opacity 0.35s ease,
+          transform 0.5s ease;
+      }
+
+      .photo-overlay {
+        position: absolute;
+
+        bottom: 15px;
+        right: 15px;
+
+        padding: 7px 11px;
+
+        border-radius: 999px;
+
+        background: rgba(0, 0, 0, 0.55);
+
+        backdrop-filter: blur(8px);
+
+        font-size: 11px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .photo-control {
+        position: absolute;
+
+        z-index: 4;
+
+        width: 38px;
+        height: 38px;
+
+        border: 1px solid rgba(255, 255, 255, 0.15);
+
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.45);
+
+        color: white;
+
+        cursor: pointer;
+
+        backdrop-filter: blur(8px);
+
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .photo-control:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      .photo-control:active {
+        transform: scale(0.92);
+      }
+
+      .photo-control.left {
+        left: 10px;
+      }
+
+      .photo-control.right {
+        right: 10px;
+      }
+
+      .photo-caption {
+        min-height: 50px;
+
+        margin: 0 0 20px;
+
+        text-align: center;
+
+        color: var(--muted);
+
+        font-family: "Playfair Display", serif;
+
+        font-style: italic;
+
+        font-size: 17px;
+        line-height: 1.4;
+      }
+
+      /* =========================================================
+         STORY
+      ========================================================= */
+
+      .story-screen {
+        background:
+          radial-gradient(
+            circle at 85% 15%,
+            rgba(var(--accent-rgb), 0.08),
+            transparent 32%
+          ),
+          var(--screen-main);
+
+        overflow-y: auto;
+      }
+
+      .story-content {
+        padding-top: 70px;
+      }
+
+      .story-content h2 {
+        margin: 0 0 32px;
+
+        font-size: 37px;
+        line-height: 1.1;
+      }
+
+      .story-card {
+        position: relative;
+
+        margin-bottom: 16px;
+
+        padding: 25px 22px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(
+          145deg,
+          var(--card-gradient-start),
+          var(--card-gradient-end)
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .story-card:hover {
+        transform: translateY(-2px);
+
+        border-color: rgba(var(--accent-rgb), 0.22);
+      }
+
+      .story-label {
+        display: block;
+
+        margin-bottom: 12px;
+
+        color: var(--gold);
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: 0.18em;
+      }
+
+      .story-card h3 {
+        margin: 0 0 12px;
+
+        color: var(--cream);
+
+        font-size: 23px;
+        line-height: 1.2;
+      }
+
+      .story-card p {
+        margin: 0;
+
+        white-space: pre-line;
+
+        color: var(--muted);
+
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .story-content .primary-button {
+        margin-top: 8px;
+      }
+
+      /* =========================================================
+         TIMELINE
+      ========================================================= */
+
+      .timeline-screen {
+        background:
+          radial-gradient(
+            circle at 15% 20%,
+            rgba(var(--accent-rgb), 0.07),
+            transparent 35%
+          ),
+          var(--screen-soft);
+
+        overflow-y: auto;
+      }
+
+      .timeline-content {
+        padding-top: 70px;
+      }
+
+      .timeline-content h2 {
+        margin: 0 0 38px;
+
+        font-size: 37px;
+        line-height: 1.1;
+      }
+
+      .timeline {
+        position: relative;
+
+        padding-left: 4px;
+
+        margin-bottom: 30px;
+      }
+
+      .timeline::before {
+        content: "";
+
+        position: absolute;
+
+        top: 8px;
+        bottom: 8px;
+        left: 12px;
+
+        width: 1px;
+
+        background: linear-gradient(
+          to bottom,
+          rgba(var(--accent-rgb), 0.6),
+          rgba(var(--accent-rgb), 0.08)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+
+        display: flex;
+
+        gap: 18px;
+
+        margin-bottom: 22px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-marker {
+        position: relative;
+
+        flex: 0 0 18px;
+
+        width: 18px;
+      }
+
+      .timeline-marker span {
+        position: absolute;
+
+        top: 5px;
+        left: 4px;
+
+        width: 9px;
+        height: 9px;
+
+        border-radius: 50%;
+
+        background: var(--gold);
+
+        box-shadow:
+          0 0 0 4px rgba(var(--accent-rgb), 0.08),
+          0 0 18px rgba(var(--accent-rgb), 0.25);
+      }
+
+      .timeline-card {
+        flex: 1;
+
+        min-width: 0;
+
+        padding: 20px;
+
+        border-radius: 18px;
+
+        background: linear-gradient(
+          145deg,
+          var(--card-gradient-start),
+          var(--card-gradient-end)
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      }
+
+      .timeline-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        margin-bottom: 10px;
+      }
+
+      .timeline-year {
+        color: var(--gold-light);
+
+        font-size: 11px;
+        font-weight: 700;
+
+        letter-spacing: 0.12em;
+      }
+
+      .timeline-date {
+        color: var(--muted);
+
+        font-size: 10px;
+      }
+
+      .timeline-date:not(:empty)::before {
+        content: "•";
+
+        margin-right: 8px;
+
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      .timeline-card h3 {
+        margin: 0 0 9px;
+
+        color: var(--cream);
+
+        font-size: 21px;
+        line-height: 1.25;
+      }
+
+      .timeline-card p {
+        margin: 0;
+
+        white-space: pre-line;
+
+        color: var(--muted);
+
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .timeline-screen.optional-empty {
+        display: none;
+      }
+
+      /* =========================================================
+         LETTER
+      ========================================================= */
+
+      .letter-screen {
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(var(--accent-rgb), 0.08),
+            transparent 35%
+          ),
+          var(--screen-main);
+
+        overflow-y: auto;
+      }
+
+      .letter-paper {
+        margin-bottom: 25px;
+
+        padding: 30px 24px;
+
+        border-radius: var(--radius);
+
+        background: #f4eee3;
+
+        color: #292722;
+
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+
+        position: relative;
+      }
+
+      .letter-paper::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 8px;
+
+        border: 1px solid rgba(80, 68, 48, 0.12);
+
+        border-radius: 18px;
+
+        pointer-events: none;
+      }
+
+      .letter-greeting {
+        position: relative;
+
+        margin: 0 0 25px;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 24px;
+      }
+
+      .letter-paper > p:not(.letter-greeting):not(.letter-signature) {
+        position: relative;
+
+        margin: 0;
+
+        white-space: pre-line;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .letter-signature {
+        position: relative;
+
+        margin: 28px 0 0;
+
+        font-family: "Playfair Display", serif;
+
+        font-style: italic;
+      }
+
+      /* =========================================================
+         INTERACTIVE
+      ========================================================= */
+
+      .interactive-screen {
+        align-items: center;
+        justify-content: center;
+
+        overflow-y: auto;
+
+        background:
+          radial-gradient(
+            circle at center,
+            rgba(var(--accent-rgb), 0.11),
+            transparent 40%
+          ),
+          linear-gradient(160deg, var(--card-soft), var(--bg));
+      }
+
+      .interactive-content {
+        position: relative;
+
+        width: 100%;
+
+        padding: 40px 28px;
+
+        text-align: center;
+      }
+
+      .interactive-icon {
+        width: 64px;
+        height: 64px;
+
+        margin: 0 auto 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        color: var(--gold-light);
+
+        background: rgba(var(--accent-rgb), 0.08);
+
+        border: 1px solid rgba(var(--accent-rgb), 0.22);
+
+        font-size: 24px;
+
+        animation: breathe 2.4s infinite ease-in-out;
+      }
+
+      .interactive-content h2 {
+        margin: 0 0 18px;
+
+        font-size: 39px;
+        line-height: 1.08;
+      }
+
+      .interactive-description {
+        max-width: 310px;
+
+        margin: 0 auto 30px;
+
+        color: var(--muted);
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 17px;
+        line-height: 1.55;
+
+        white-space: pre-line;
+      }
+
+      .interactive-button {
+        min-width: 190px;
+
+        padding: 15px 22px;
+
+        border: 1px solid rgba(var(--accent-rgb), 0.55);
+
+        border-radius: 999px;
+
+        background: rgba(var(--accent-rgb), 0.08);
+
+        color: var(--cream);
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 14px;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition:
+          background 0.3s ease,
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .interactive-button:hover {
+        background: rgba(var(--accent-rgb), 0.16);
+
+        border-color: rgba(var(--accent-rgb), 0.75);
+      }
+
+      .interactive-button:active {
+        transform: scale(0.96);
+      }
+
+      .interactive-button.opened {
+        opacity: 0.7;
+
+        pointer-events: none;
+      }
+
+      .interactive-reveal {
+        max-width: 340px;
+
+        max-height: 0;
+
+        margin: 0 auto;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+        transition:
+          max-height 0.8s ease,
+          opacity 0.6s ease,
+          transform 0.7s ease,
+          margin 0.7s ease;
+      }
+
+      .interactive-reveal.show {
+        max-height: 350px;
+
+        margin-top: 30px;
+
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+
+      .interactive-reveal-icon {
+        margin-bottom: 15px;
+
+        color: var(--gold-light);
+
+        font-size: 24px;
+      }
+
+      .interactive-reveal p {
+        margin: 0;
+
+        white-space: pre-line;
+
+        color: var(--cream);
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 19px;
+        line-height: 1.6;
+      }
+
+      /* =========================================================
+         FINAL REVEAL
+      ========================================================= */
+
+      .final-screen {
+        align-items: center;
+        justify-content: center;
+
+        background: radial-gradient(
+          circle at center,
+          rgba(var(--accent-rgb), 0.15),
+          var(--bg) 60%
+        );
+      }
+
+      .final-glow {
+        position: absolute;
+
+        width: 240px;
+        height: 240px;
+
+        border-radius: 50%;
+
+        background: rgba(var(--accent-rgb), 0.1);
+
+        filter: blur(65px);
+      }
+
+      .final-content {
+        position: relative;
+
+        width: 100%;
+
+        padding: 30px;
+
+        text-align: center;
+      }
+
+      .final-icon {
+        margin-bottom: 25px;
+
+        color: var(--gold-light);
+
+        font-size: 34px;
+
+        animation: breathe 2s infinite;
+      }
+
+      .final-content h2 {
+        margin: 0 0 35px;
+
+        font-size: 40px;
+        line-height: 1.08;
+      }
+
+      .unlock-button {
+        width: 170px;
+        height: 52px;
+
+        border: 1px solid rgba(var(--accent-rgb), 0.6);
+
+        border-radius: 999px;
+
+        background: transparent;
+
+        color: var(--cream);
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 15px;
+
+        cursor: pointer;
+
+        transition:
+          background 0.3s ease,
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .unlock-button:hover {
+        background: rgba(var(--accent-rgb), 0.12);
+      }
+
+      .unlock-button:active {
+        transform: scale(0.96);
+      }
+
+      .final-message {
+        display: grid;
+
+        grid-template-rows: 0fr;
+
+        margin-top: 0;
+
+        opacity: 0;
+
+        transition:
+          grid-template-rows 0.8s ease,
+          opacity 0.5s ease,
+          margin 0.5s ease;
+      }
+
+      .final-message p {
+        min-height: 0;
+
+        margin: 0;
+
+        overflow: hidden;
+
+        white-space: pre-line;
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 21px;
+        line-height: 1.6;
+      }
+
+      .final-message.show {
+        grid-template-rows: 1fr;
+
+        opacity: 1;
+
+        margin-top: 30px;
+      }
+
+      /* =========================================================
+         CLOSING
+      ========================================================= */
+
+      .closing-screen {
+        align-items: center;
+        justify-content: center;
+
+        background: linear-gradient(160deg, var(--card-soft), var(--bg));
+      }
+
+      .closing-content {
+        width: 100%;
+
+        padding: 30px;
+
+        text-align: center;
+      }
+
+      .closing-symbol {
+        margin-bottom: 25px;
+
+        color: var(--gold-light);
+
+        font-size: 34px;
+
+        animation: breathe 2.5s infinite ease-in-out;
+      }
+
+      .closing-content h2 {
+        margin: 0 0 20px;
+
+        font-size: 37px;
+        line-height: 1.15;
+      }
+
+      .closing-content > p:not(.eyebrow) {
+        max-width: 320px;
+
+        margin: 0 auto 35px;
+
+        color: var(--muted);
+
+        font-family: "Playfair Display", serif;
+
+        font-size: 18px;
+        line-height: 1.6;
+
+        white-space: pre-line;
+      }
+
+      .closing-from {
+        color: var(--muted);
+
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .closing-from strong {
+        color: var(--cream);
+      }
+
+      /* =========================================================
+         NAVIGATION
+      ========================================================= */
+
+      .navigation {
+        position: absolute;
+
+        z-index: 50;
+
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 8px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        border-radius: 999px;
+
+        background: rgba(12, 12, 15, 0.78);
+
+        backdrop-filter: blur(15px);
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition: 0.4s ease;
+      }
+
+      .navigation.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .navigation button {
+        width: 34px;
+        height: 34px;
+
+        border: 0;
+
+        border-radius: 50%;
+
+        background: transparent;
+
+        color: var(--cream);
+
+        cursor: pointer;
+
+        font-size: 17px;
+
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .navigation button:hover {
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .navigation button:active {
+        transform: scale(0.9);
+      }
+
+      .section-progress {
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+
+        font-size: 10px;
+
+        color: var(--muted);
+      }
+
+      .progress-track {
+        width: 70px;
+        height: 2px;
+
+        overflow: hidden;
+
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .progress-fill {
+        width: 0;
+        height: 100%;
+
+        background: var(--gold);
+
+        transition: width 0.5s ease;
+      }
+
+      /* =========================================================
+         FOCUS
+      ========================================================= */
+
+      ::selection {
+        background: rgba(var(--accent-rgb), 0.25);
+
+        color: var(--cream);
+      }
+
+      button:focus-visible {
+        outline: 2px solid var(--gold-light);
+
+        outline-offset: 3px;
+      }
+
+      /* =========================================================
+         RESPONSIVE
+      ========================================================= */
+
+      @media (max-width: 380px) {
+        .content {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .reveal-wrapper {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .memory-intro-card,
+        .story-card,
+        .timeline-card {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .photo-frame {
+          height: 350px;
+        }
+
+        .reveal-wrapper h1,
+        .photo-screen h2,
+        .story-content h2,
+        .timeline-content h2 {
+          font-size: 33px;
+        }
+
+        .final-content h2,
+        .interactive-content h2 {
+          font-size: 35px;
+        }
+      }
+
+      @media (min-width: 600px) {
+        body {
+          display: flex;
+
+          align-items: center;
+          justify-content: center;
+        }
+
+        .experience {
+          height: min(850px, 94vh);
+
+          border-radius: 30px;
+
+          box-shadow:
+            0 35px 100px rgba(0, 0, 0, 0.6),
+            0 0 0 8px #141417;
+        }
+      }
+
+      /* =========================================================
+         REDUCED MOTION
+      ========================================================= */
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+
+          animation-iteration-count: 1 !important;
+
+          scroll-behavior: auto !important;
+
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="experience" id="experience">
+      <!-- =====================================================
+           LOADING
+      ====================================================== -->
+
+      <section class="screen loading-screen active" id="loadingScreen">
+        <div class="loading-icon">
+          <span>✦</span>
+        </div>
+
+        <h1 class="loading-title">
+          A little something<br />
+          made just for you.
+        </h1>
+
+        <div class="loading-small">Preparing your surprise...</div>
+
+        <div class="loading-line">
+          <div class="loading-progress"></div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           GIFT / CINEMATIC OPENING
+      ====================================================== -->
+
+      <section class="screen gift-screen" id="giftScreen">
+        <div class="gift-background-glow"></div>
+
+        <div class="gift-heading">
+          <span>Someone made this</span>
+          <strong>just for you.</strong>
+        </div>
+
+        <div class="gift-container" id="giftContainer">
+          <div class="gift-shadow"></div>
+
+          <div class="gift-box">
+            <div class="gift-body">
+              <div class="ribbon-vertical"></div>
+            </div>
+
+            <div class="gift-lid">
+              <div class="ribbon-horizontal"></div>
+            </div>
+
+            <div class="bow">
+              <div class="bow-left"></div>
+              <div class="bow-right"></div>
+              <div class="bow-center"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gift-hint">
+          <span>Tap the gift to open</span>
+          <span class="hint-arrow">↓</span>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BIRTHDAY REVEAL
+      ====================================================== -->
+
+      <section class="screen reveal-screen" id="revealScreen">
+        <div class="reveal-wrapper">
+          <p class="eyebrow">A special day</p>
+
+          <h1>
+            Happy Birthday,
+            <span id="recipientReveal">You</span>.
+          </h1>
+
+          <div class="reveal-card">
+            <div class="reveal-photo">
+              <img id="revealPhoto" alt="Birthday memory" />
+            </div>
+
+            <div class="reveal-content">
+              <p class="from">
+                From <strong id="senderReveal">Someone</strong>
+              </p>
+
+              <p class="message" id="mainMessage"></p>
+
+              <button class="primary-button" id="continueButton">
+                Continue
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           MEMORIES
+      ====================================================== -->
+
+      <section class="screen photo-screen" id="photoScreen">
+        <div class="content">
+          <p class="eyebrow">The memories</p>
+
+          <h2>Little moments,<br />kept here.</h2>
+
+          <div class="memory-intro-card">
+            <div class="memory-number">01 — MEMORY</div>
+
+            <p id="memoryText">Every memory becomes part of the story.</p>
+
+            <div class="memory-date" id="memoryDate"></div>
+          </div>
+
+          <div class="photo-stage">
+            <div class="photo-frame">
+              <img id="journeyPhoto" alt="Memory photo" />
+
+              <div class="photo-overlay">
+                <span id="photoCounter">0 / 0</span>
+              </div>
+            </div>
+
+            <button
+              class="photo-control left"
+              id="previousPhoto"
+              aria-label="Previous photo"
+            >
+              ←
+            </button>
+
+            <button
+              class="photo-control right"
+              id="nextPhoto"
+              aria-label="Next photo"
+            >
+              →
+            </button>
+          </div>
+
+          <p class="photo-caption" id="photoCaption"></p>
+
+          <button class="primary-button" id="photoContinue">
+            Continue the story
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           STORY
+      ====================================================== -->
+
+      <section class="screen story-screen" id="storyScreen">
+        <div class="content story-content">
+          <p class="eyebrow">Our story</p>
+
+          <h2>Somewhere<br />along the way.</h2>
+
+          <div class="story-card">
+            <span class="story-label">CHAPTER 01</span>
+
+            <h3>How We Met</h3>
+
+            <p id="howWeMet"></p>
+          </div>
+
+          <div class="story-card" id="firstMemoryCard">
+            <span class="story-label">CHAPTER 02</span>
+
+            <h3>First Memory</h3>
+
+            <p id="firstMemory"></p>
+          </div>
+
+          <div class="story-card">
+            <span class="story-label">CHAPTER 03</span>
+
+            <h3>Favorite Moment</h3>
+
+            <p id="favoriteMoment"></p>
+          </div>
+
+          <div class="story-card">
+            <span class="story-label">CHAPTER 04</span>
+
+            <h3>What We Have Now</h3>
+
+            <p id="whatWeHaveNow"></p>
+          </div>
+
+          <button class="primary-button" id="storyButton">
+            Continue
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           TIMELINE
+      ====================================================== -->
+
+      <section class="screen timeline-screen" id="timelineScreen">
+        <div class="content timeline-content">
+          <p class="eyebrow">The journey</p>
+
+          <h2>A few chapters<br />worth remembering.</h2>
+
+          <div class="timeline" id="timeline">
+            <article class="timeline-item">
+              <div class="timeline-marker">
+                <span></span>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <span class="timeline-year" data-field="year"></span>
+                  <span class="timeline-date" data-field="date"></span>
+                </div>
+
+                <h3 data-field="event"></h3>
+
+                <p data-field="description"></p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-marker">
+                <span></span>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <span class="timeline-year" data-field="year"></span>
+                  <span class="timeline-date" data-field="date"></span>
+                </div>
+
+                <h3 data-field="event"></h3>
+
+                <p data-field="description"></p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-marker">
+                <span></span>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <span class="timeline-year" data-field="year"></span>
+                  <span class="timeline-date" data-field="date"></span>
+                </div>
+
+                <h3 data-field="event"></h3>
+
+                <p data-field="description"></p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-marker">
+                <span></span>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <span class="timeline-year" data-field="year"></span>
+                  <span class="timeline-date" data-field="date"></span>
+                </div>
+
+                <h3 data-field="event"></h3>
+
+                <p data-field="description"></p>
+              </div>
+            </article>
+          </div>
+
+          <button class="primary-button" id="timelineButton">
+            Continue
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PERSONAL LETTER
+      ====================================================== -->
+
+      <section class="screen letter-screen" id="letterScreen">
+        <div class="content">
+          <p class="eyebrow">A personal letter</p>
+
+          <div class="letter-paper">
+            <p class="letter-greeting">For you,</p>
+
+            <p id="letterText"></p>
+
+            <p class="letter-signature" id="letterSignature">— Someone</p>
+          </div>
+
+          <button class="primary-button" id="letterButton">
+            One more thing
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           INTERACTIVE SURPRISE
+      ====================================================== -->
+
+      <section class="screen interactive-screen" id="interactiveScreen">
+        <div class="interactive-content">
+          <div class="interactive-icon">✦</div>
+
+          <p class="eyebrow">One little surprise</p>
+
+          <h2>
+            There's something<br />
+            else.
+          </h2>
+
+          <p class="interactive-description" id="interactiveDescription">
+            Take a moment. Then press the button.
+          </p>
+
+          <button class="interactive-button" id="interactiveButton">
+            <span id="interactiveButtonText"> Reveal it </span>
+
+            <span>✦</span>
+          </button>
+
+          <div class="interactive-reveal" id="interactiveReveal">
+            <div class="interactive-reveal-icon">✦</div>
+
+            <p id="interactiveMessage"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           FINAL REVEAL
+      ====================================================== -->
+
+      <section class="screen final-screen" id="finalScreen">
+        <div class="final-glow"></div>
+
+        <div class="final-content">
+          <div class="final-icon">✦</div>
+
+          <p class="eyebrow">The final reveal</p>
+
+          <h2>
+            One last thing<br />
+            I want you to know.
+          </h2>
+
+          <button class="unlock-button" id="unlockButton">
+            <span>Unlock</span>
+            <span>✦</span>
+          </button>
+
+          <div class="final-message" id="finalMessage">
+            <p></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ENDING
+      ====================================================== -->
+
+      <section class="screen closing-screen" id="closingScreen">
+        <div class="closing-content">
+          <div class="closing-symbol">✦</div>
+
+          <p class="eyebrow">Until the next chapter</p>
+
+          <h2 id="closingTitle">For you.</h2>
+
+          <p id="closingText"></p>
+
+          <div class="closing-from">
+            With love,<br />
+            <strong id="closingSender">Someone</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           NAVIGATION
+      ====================================================== -->
+
+      <nav class="navigation" id="navigation">
+        <button id="prevSection" aria-label="Previous section">←</button>
+
+        <div class="section-progress">
+          <span id="currentSection">01</span>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <span id="totalSection">09</span>
+        </div>
+
+        <button id="nextSection" aria-label="Next section">→</button>
+      </nav>
+    </main>
+
+    <script>
+      /* =========================================================
+         BUATMU SIGNATURE #3
+         CENTRAL CLIENT DATA
+      ========================================================= */
+
+      const clientData = {
+        /* =========================
+           IDENTITY
+        ========================= */
+
+        recipient: "Oei Hellen",
+        sender: "Hakram",
+        birthdayDate: "28 September 2026",
+
+        /* =========================
+           BIRTHDAY MESSAGE
+        ========================= */
+
+        message: "",
+
+        /* =========================
+           MEMORIES
+           Maximum 15 photos
+        ========================= */
+
+        photos: [
+          {
+            image: "assets/photos/photo-1.jpg",
+            caption:
+              "Hahahahahaa ingattt tidakkk, ini adalahhh pup guguggg dari adekk yang selalu abangg simpannn.",
+          },
+          {
+            image: "assets/photos/photo-2.jpg",
+            caption:
+              "Yangggg ini jugaaa, tapii abanggg ingatt ini adekk pakek jacket maroon yang adek beli waktu adek holiday with adek familyy.",
+          },
+          {
+            image: "assets/photos/photo-3.jpg",
+            caption:
+              "Ahhh sumpahhh ini selalu abangg ingatt donggg, bagaimanaaa bisaaa abang lupaaaa, orangg ini mountain dateeee pertamaaa dan terakhirrr kita bukann??, ini kitaaa potbarrr di pos 3.",
+          },
+          {
+            image: "assets/photos/photo-4.jpg",
+            caption: "Ini adekk ngiriminn pappp waktuu adek lagii pigiii.",
+          },
+          {
+            image: "assets/photos/photo-5.jpg",
+            caption:
+              "Hahahahahaa iniii donggg, ingattt gakkk? ini adalah photo kitaaa pas dah sampai puncakkk, dan jujurr abangg gak kuattt waktu photo inii, karnaa abang gak kuatt eek kalau diliatin ama adekk, jujurr adekk imutt bangett abang salting gak karuan kalau dah kek gini.",
+          },
+          {
+            image: "assets/photos/photo-6.jpg",
+            caption: "Hahahaaa inii waktuu adekk photoin abang di puncakkk.",
+          },
+          {
+            image: "assets/photos/photo-7.jpg",
+            caption:
+              "Xixii inget banget donggg, inii abang sumpah salting bangettt gak kuatttt ditatapp ama adekk lohhh auiiefieunfiqjdfi3, jujurr rasanyaa kek gak kuat berdiriii huahahahahaaaa, adekk sihh imut banget njir jadi orangg ah au ah.",
+          },
+          {
+            image: "assets/photos/photo-8.jpg",
+            caption: "Xixiii ini jugaa sama selfie kita di pos 3.",
+          },
+        ],
+
+        /* =========================
+           OUR STORY
+        ========================= */
+
+        story: {
+          howWeMet: "",
+
+          firstMemory:
+            'Lebih tepatnyaa sihhh, pertama kali abang mengenal adekk waktu abang kelas 8 dan itu waktu adekk naik panggungg dan lagi letakk kursiii, waktu itu adek ngehentak kursinyaa teruss jadi pusat perhatiann altra, dan orang ini bilang "eh itu siapa itu siapa?", barulah ada yang bilangg, "ohh itu hellen". Yapss dari situ lah awal mulaa abang kenal adekkk.',
+
+          favoriteMoment:
+            "Ahhh kalau favoriteee momenttt yaaa??, makan siang di taman batu selalu menjadi favorite moment abang sihh, jujur dari banyak nya hal yang kita laluii, makan siang waktu magang kemaren menjadi favorite moment abang, karnaaaa abang bisa selalu melihat adek tersenyum, menyuapi adekk, jujurr setiap kali makan siang ama adekk, rasanya gak mau balek lagi ke kantorrr, soalnya udah terlanjur nyamannnn hahahahaha au ahh.",
+
+          whatWeHaveNow: "",
+        },
+
+        /* =========================
+           TIMELINE
+           Maximum 4
+        ========================= */
+
+        timeline: [
+          {
+            year: "2023",
+            date: "",
+            event: "Pertama kali abang kenal adek",
+            description:
+              "Waktu lagi acara pondok abang lihat adekkk, dan dari situlah abang mengenal adekk, waktu itu cukup.",
+          },
+          {
+            year: "2025",
+            date: "",
+            event: "Makan siang di Taman Batu",
+            description:
+              "Waktu itu aku dan dia udah gak ada hubungan lagi semenjak masalah Zaki, tapi ntah kenapaa hahahahaaa panjangg banget sih ceritanyaa, dan intinyaaa waktu magang kebetulan aku makan siang di Taman Batu, dan dia juga. So mulai saat itulahh hubungan kami kembali lagii.",
+          },
+          {
+            year: "2026",
+            date: "",
+            event: "Muncak",
+            description: "Muncakkk beduaan ajaa.",
+          },
+          {
+            year: "2025",
+            date: "",
+            event: "Jalan-jalan ke Senggarang",
+            description:
+              "Hahahah itu abisss akreditasiii njayyy. Jalannn jalannnnnn ke Senggarangg.",
+          },
+        ],
+
+        /* =========================
+           PERSONAL LETTER
+        ========================= */
+
+        letter: `
+Untuk adekkkkk
+        `,
+
+        letterSignature: "Adek k unyuu unyuuu",
+
+        /* =========================
+           MUSIC
+           Optional
+        ========================= */
+
+        music: "",
+
+        /* =========================
+           INTERACTIVE SURPRISE
+        ========================= */
+
+        interactive: {
+          description: `
+Jangannn di klikkk nantii saltingggg.
+          `,
+
+          message: `
+Sebenarnyaaa adekkkkk, abanggg tuhhhhhh, berbohonggggg.
+
+Xixiiiii abangggg tidak akan menepatii janji abang kokkkk, itu udah bukan janji lagii.
+
+Tapi ntahh kenapaaa HUAHAHAHAHAHA abang tetep pengen lamar adekkk.
+
+Jadii xixiii mungkin kalau abang dah suksessss abanggg akan cari adekkkk.
+
+Tapi kalau gakk suksessssss, hahahahaa berarti abanggg yang akan datang ke pernikahann adekkkk.
+          `,
+        },
+
+        /* =========================
+           FINAL REVEAL
+        ========================= */
+
+        finalMessage: `
+Abangg harapppp adekk bisa menemukannn seseoranggg yang jauh lebih baik dari abangggg, karnaaa abangg tau kokk, bahwa emang bukan abang tujuan akhir adekkk.
+
+Dan abang juga ngerasaaa hanya membawa keburukan kedalam kehidupann adekkk, sooo terimakasihhh yaa sudahh hadirrrr dihidup abang yang sekali iniiii.
+
+Maybe in another life, hahahahha another life ah, mana ada lagi itu another life.
+
+Semogaaaa adek menemukannya yaaa, seseoranggg yang benar benar bisa memahami diri adek dengan baikkk, menjaga adekk dengannn baikk, mencintaii adekk dengann tulusss, dan bisa mentreat adekk dengan sangat sangatt baikkk.
+
+Dan yang paling pentingggggggg, bukan orang yang seperti abang yang hahahahahaaaa, selalu menjadi lelaki yanggg payahhh, bahkan untuk memahami adek aja pun abang gagalll.
+
+Maaf yaaa sayankkkk.
+        `,
+
+        /* =========================
+           ENDING
+        ========================= */
+
+        closingMessage: `
+Maafkan abanggg.
+        `,
+
+        closingTitle: "Untuk adek",
+
+        closingSender: "Hakramm",
+
+        /* =========================
+           THEME
+           
+           Available:
+           midnight
+           soft
+           elegant
+           dark
+           dreamy
+           cinematic
+           rose
+        ========================= */
+
+        theme: {
+          preset: "rose",
+        },
+      };
+
+      /* =========================================================
+         THEME SYSTEM
+      ========================================================= */
+
+      const availableThemes = [
+        "midnight",
+        "soft",
+        "elegant",
+        "dark",
+        "dreamy",
+        "cinematic",
+        "rose",
+      ];
+
+      function applyTheme() {
+        const selectedTheme = clientData.theme?.preset || "midnight";
+
+        const theme = availableThemes.includes(selectedTheme)
+          ? selectedTheme
+          : "midnight";
+
+        document.documentElement.dataset.theme = theme;
+      }
+
+      applyTheme();
+
+      /* =========================================================
+         DATA LIMITS
+      ========================================================= */
+
+      const MAX_PHOTOS = 15;
+      const MAX_TIMELINE_ITEMS = 4;
+
+      /* =========================================================
+         SAFE DATA
+      ========================================================= */
+
+      const photos = Array.isArray(clientData.photos)
+        ? clientData.photos
+            .filter((photo) => photo && photo.image)
+            .slice(0, MAX_PHOTOS)
+        : [];
+
+      const timelineData = Array.isArray(clientData.timeline)
+        ? clientData.timeline
+            .filter((item) => item)
+            .slice(0, MAX_TIMELINE_ITEMS)
+        : [];
+
+      /* =========================================================
+         ELEMENTS
+      ========================================================= */
+
+      const loadingScreen = document.getElementById("loadingScreen");
+
+      const giftScreen = document.getElementById("giftScreen");
+
+      const revealScreen = document.getElementById("revealScreen");
+
+      const photoScreen = document.getElementById("photoScreen");
+
+      const storyScreen = document.getElementById("storyScreen");
+
+      const timelineScreen = document.getElementById("timelineScreen");
+
+      const letterScreen = document.getElementById("letterScreen");
+
+      const interactiveScreen = document.getElementById("interactiveScreen");
+
+      const finalScreen = document.getElementById("finalScreen");
+
+      const closingScreen = document.getElementById("closingScreen");
+
+      /* Navigation */
+
+      const navigation = document.getElementById("navigation");
+
+      const currentSection = document.getElementById("currentSection");
+
+      const progressFill = document.getElementById("progressFill");
+
+      const totalSection = document.getElementById("totalSection");
+
+      /* Story */
+
+      const howWeMet = document.getElementById("howWeMet");
+
+      const firstMemory = document.getElementById("firstMemory");
+
+      const favoriteMoment = document.getElementById("favoriteMoment");
+
+      const whatWeHaveNow = document.getElementById("whatWeHaveNow");
+
+      const firstMemoryCard = document.getElementById("firstMemoryCard");
+
+      /* Timeline */
+
+      const timelineContainer = document.getElementById("timeline");
+
+      const timelineItems = timelineContainer
+        ? Array.from(timelineContainer.querySelectorAll(".timeline-item"))
+        : [];
+
+      /* Interactive */
+
+      const interactiveDescription = document.getElementById(
+        "interactiveDescription",
+      );
+
+      const interactiveButton = document.getElementById("interactiveButton");
+
+      const interactiveButtonText = document.getElementById(
+        "interactiveButtonText",
+      );
+
+      const interactiveReveal = document.getElementById("interactiveReveal");
+
+      const interactiveMessage = document.getElementById("interactiveMessage");
+
+      /* Photos */
+
+      const revealPhoto = document.getElementById("revealPhoto");
+
+      const journeyPhoto = document.getElementById("journeyPhoto");
+
+      const photoCaption = document.getElementById("photoCaption");
+
+      const photoCounter = document.getElementById("photoCounter");
+
+      const previousPhoto = document.getElementById("previousPhoto");
+
+      const nextPhoto = document.getElementById("nextPhoto");
+
+      /* =========================================================
+         SECTION SYSTEM
+      ========================================================= */
+
+      const allExperienceSections = [
+        giftScreen,
+        revealScreen,
+        photoScreen,
+        storyScreen,
+        timelineScreen,
+        letterScreen,
+        interactiveScreen,
+        finalScreen,
+        closingScreen,
+      ];
+
+      if (!timelineData.length && timelineScreen) {
+        timelineScreen.classList.add("optional-empty");
+      }
+
+      let sections = [];
+
+      function buildSections() {
+        sections = [giftScreen, revealScreen, photoScreen, storyScreen];
+
+        if (timelineData.length > 0) {
+          sections.push(timelineScreen);
+        }
+
+        sections.push(
+          letterScreen,
+          interactiveScreen,
+          finalScreen,
+          closingScreen,
+        );
+      }
+
+      buildSections();
+
+      let currentIndex = 0;
+
+      /* =========================================================
+         PERSONAL DATA
+      ========================================================= */
+
+      const recipientReveal = document.getElementById("recipientReveal");
+
+      if (recipientReveal) {
+        recipientReveal.textContent = clientData.recipient;
+      }
+
+      const senderReveal = document.getElementById("senderReveal");
+
+      if (senderReveal) {
+        senderReveal.textContent = clientData.sender;
+      }
+
+      const mainMessage = document.getElementById("mainMessage");
+
+      if (mainMessage) {
+        mainMessage.textContent = clientData.message.trim();
+      }
+
+      /* =========================================================
+         REVEAL PHOTO
+      ========================================================= */
+
+      if (revealPhoto) {
+        if (photos.length > 0) {
+          revealPhoto.src = photos[0].image;
+
+          revealPhoto.alt = photos[0].caption || "Birthday memory";
+        } else {
+          revealPhoto.style.display = "none";
+        }
+      }
+
+      /* =========================================================
+         MEMORY INTRO
+      ========================================================= */
+
+      const memoryText = document.getElementById("memoryText");
+
+      const memoryDate = document.getElementById("memoryDate");
+
+      if (memoryText) {
+        memoryText.textContent =
+          clientData.story.favoriteMoment?.trim() ||
+          "Every memory becomes part of the story.";
+      }
+
+      if (memoryDate) {
+        memoryDate.textContent = clientData.birthdayDate || "";
+      }
+
+      /* =========================================================
+         OUR STORY
+      ========================================================= */
+
+      function setupStoryCard(element, value) {
+        if (!element) {
+          return;
+        }
+
+        const cleanValue = typeof value === "string" ? value.trim() : "";
+
+        if (!cleanValue) {
+          element.style.display = "none";
+          return;
+        }
+
+        element.style.display = "";
+      }
+
+      if (howWeMet) {
+        howWeMet.textContent = clientData.story.howWeMet?.trim() || "";
+
+        setupStoryCard(
+          howWeMet.closest(".story-card"),
+          clientData.story.howWeMet,
+        );
+      }
+
+      if (firstMemory) {
+        firstMemory.textContent = clientData.story.firstMemory?.trim() || "";
+
+        setupStoryCard(firstMemoryCard, clientData.story.firstMemory);
+      }
+
+      if (favoriteMoment) {
+        favoriteMoment.textContent =
+          clientData.story.favoriteMoment?.trim() || "";
+
+        setupStoryCard(
+          favoriteMoment.closest(".story-card"),
+          clientData.story.favoriteMoment,
+        );
+      }
+
+      if (whatWeHaveNow) {
+        whatWeHaveNow.textContent =
+          clientData.story.whatWeHaveNow?.trim() || "";
+
+        setupStoryCard(
+          whatWeHaveNow.closest(".story-card"),
+          clientData.story.whatWeHaveNow,
+        );
+      }
+
+      /* =========================================================
+         TIMELINE
+      ========================================================= */
+
+      function renderTimeline() {
+        if (!timelineContainer) {
+          return;
+        }
+
+        timelineItems.forEach((item) => {
+          item.style.display = "none";
+        });
+
+        timelineData.forEach((item, index) => {
+          const timelineItem = timelineItems[index];
+
+          if (!timelineItem) {
+            return;
+          }
+
+          const year = timelineItem.querySelector('[data-field="year"]');
+
+          const date = timelineItem.querySelector('[data-field="date"]');
+
+          const event = timelineItem.querySelector('[data-field="event"]');
+
+          const description = timelineItem.querySelector(
+            '[data-field="description"]',
+          );
+
+          if (year) {
+            year.textContent = item.year || "";
+          }
+
+          if (date) {
+            date.textContent = item.date || "";
+          }
+
+          if (event) {
+            event.textContent = item.event || "";
+          }
+
+          if (description) {
+            description.textContent = item.description || "";
+          }
+
+          timelineItem.style.display = "";
+        });
+      }
+
+      renderTimeline();
+
+      /* =========================================================
+         PERSONAL LETTER
+      ========================================================= */
+
+      const letterText = document.getElementById("letterText");
+
+      const letterSignature = document.getElementById("letterSignature");
+
+      if (letterText) {
+        letterText.textContent = clientData.letter?.trim() || "";
+      }
+
+      if (letterSignature) {
+        letterSignature.textContent =
+          clientData.letterSignature?.trim() || clientData.sender;
+      }
+
+      /* =========================================================
+         INTERACTIVE SURPRISE
+      ========================================================= */
+
+      if (interactiveDescription) {
+        interactiveDescription.textContent =
+          clientData.interactive?.description?.trim() ||
+          "Take a moment. Then press the button.";
+      }
+
+      if (interactiveMessage) {
+        interactiveMessage.textContent =
+          clientData.interactive?.message?.trim() || "";
+      }
+
+      let interactiveOpened = false;
+
+      if (interactiveButton) {
+        interactiveButton.addEventListener("click", () => {
+          if (interactiveOpened) {
+            return;
+          }
+
+          interactiveOpened = true;
+
+          if (interactiveReveal) {
+            interactiveReveal.classList.add("show");
+          }
+
+          if (interactiveButtonText) {
+            interactiveButtonText.textContent = "Revealed";
+          }
+
+          interactiveButton.classList.add("opened");
+
+          createSmallSparkles(interactiveScreen);
+        });
+      }
+
+      /* =========================================================
+         FINAL MESSAGE
+      ========================================================= */
+
+      const finalMessage = document.getElementById("finalMessage");
+
+      if (finalMessage) {
+        const finalParagraph = finalMessage.querySelector("p");
+
+        if (finalParagraph) {
+          finalParagraph.textContent = clientData.finalMessage.trim();
+        }
+      }
+
+      /* =========================================================
+         CLOSING
+      ========================================================= */
+
+      const closingText = document.getElementById("closingText");
+
+      const closingTitle = document.getElementById("closingTitle");
+
+      const closingSender = document.getElementById("closingSender");
+
+      if (closingText) {
+        closingText.textContent = clientData.closingMessage.trim();
+      }
+
+      if (closingTitle) {
+        closingTitle.textContent = clientData.closingTitle || "For you.";
+      }
+
+      if (closingSender) {
+        closingSender.textContent =
+          clientData.closingSender || clientData.sender;
+      }
+
+      /* =========================================================
+         SHOW SECTION
+      ========================================================= */
+
+      function showSection(index) {
+        if (index < 0) {
+          index = 0;
+        }
+
+        if (index > sections.length - 1) {
+          index = sections.length - 1;
+        }
+
+        if (index === 0 && !giftOpened) {
+          return;
+        }
+
+        currentIndex = index;
+
+        sections.forEach((section, i) => {
+          if (!section) {
+            return;
+          }
+
+          section.classList.toggle("active", i === index);
+        });
+
+        if (navigation) {
+          navigation.classList.toggle("show", index > 0);
+        }
+
+        updateNavigation();
+      }
+
+      /* =========================================================
+         NAVIGATION UI
+      ========================================================= */
+
+      function updateNavigation() {
+        const numberedIndex = Math.max(1, currentIndex);
+
+        const displayNumber = String(numberedIndex).padStart(2, "0");
+
+        if (currentSection) {
+          currentSection.textContent = displayNumber;
+        }
+
+        const total = sections.length;
+
+        if (totalSection) {
+          totalSection.textContent = String(total).padStart(2, "0");
+        }
+
+        if (progressFill) {
+          const progress =
+            total <= 1 ? 100 : (currentIndex / (total - 1)) * 100;
+
+          progressFill.style.width = `${progress}%`;
+        }
+      }
+
+      /* =========================================================
+         LOADING
+      ========================================================= */
+
+      setTimeout(() => {
+        if (loadingScreen) {
+          loadingScreen.classList.remove("active");
+        }
+
+        if (giftScreen) {
+          giftScreen.classList.add("active");
+        }
+      }, 2400);
+
+      /* =========================================================
+         GIFT OPENING
+      ========================================================= */
+
+      const giftContainer = document.getElementById("giftContainer");
+
+      let giftOpened = false;
+
+      function openGift() {
+        if (giftOpened) {
+          return;
+        }
+
+        giftOpened = true;
+
+        if (giftScreen) {
+          giftScreen.classList.add("opening");
+        }
+
+        createConfetti();
+
+        setTimeout(() => {
+          showSection(1);
+        }, 850);
+      }
+
+      if (giftScreen) {
+        giftScreen.addEventListener("click", openGift);
+      }
+
+      /* =========================================================
+         CONFETTI
+      ========================================================= */
+
+      function createConfetti() {
+        if (!giftScreen) {
+          return;
+        }
+
+        const amount = 30;
+
+        for (let i = 0; i < amount; i++) {
+          const piece = document.createElement("div");
+
+          piece.style.position = "absolute";
+
+          piece.style.left = "50%";
+          piece.style.top = "50%";
+
+          piece.style.width = `${5 + Math.random() * 7}px`;
+
+          piece.style.height = `${10 + Math.random() * 12}px`;
+
+          piece.style.background = [
+            "var(--gold)",
+            "var(--gold-light)",
+            "#ffffff",
+            "var(--gold)",
+          ][Math.floor(Math.random() * 4)];
+
+          piece.style.opacity = "1";
+
+          piece.style.pointerEvents = "none";
+
+          piece.style.zIndex = "20";
+
+          const x = (Math.random() - 0.5) * 320;
+
+          const y = -(120 + Math.random() * 300);
+
+          const rotation = Math.random() * 720;
+
+          piece.animate(
+            [
+              {
+                transform: "translate(-50%, -50%) scale(.5)",
+                opacity: 1,
+              },
+              {
+                transform: `
+                  translate(
+                    calc(-50% + ${x}px),
+                    calc(-50% + ${y}px)
+                  )
+                  rotate(${rotation}deg)
+                  scale(1)
+                `,
+                opacity: 0,
+              },
+            ],
+            {
+              duration: 900 + Math.random() * 700,
+
+              delay: Math.random() * 150,
+
+              easing: "cubic-bezier(.15,.7,.3,1)",
+
+              fill: "forwards",
+            },
+          );
+
+          giftScreen.appendChild(piece);
+
+          setTimeout(() => {
+            piece.remove();
+          }, 1800);
+        }
+      }
+
+      /* =========================================================
+         SMALL SPARKLES
+      ========================================================= */
+
+      function createSmallSparkles(container) {
+        if (!container) {
+          return;
+        }
+
+        for (let i = 0; i < 12; i++) {
+          const sparkle = document.createElement("span");
+
+          sparkle.textContent = "✦";
+
+          sparkle.style.position = "absolute";
+
+          sparkle.style.left = "50%";
+          sparkle.style.top = "50%";
+
+          sparkle.style.pointerEvents = "none";
+
+          sparkle.style.zIndex = "20";
+
+          sparkle.style.fontSize = `${10 + Math.random() * 14}px`;
+
+          sparkle.style.color = "var(--gold-light)";
+
+          const x = (Math.random() - 0.5) * 220;
+
+          const y = (Math.random() - 0.5) * 220;
+
+          sparkle.animate(
+            [
+              {
+                transform: "translate(-50%, -50%) scale(0)",
+                opacity: 0,
+              },
+              {
+                transform: `
+                  translate(
+                    calc(-50% + ${x}px),
+                    calc(-50% + ${y}px)
+                  )
+                  scale(1)
+                `,
+                opacity: 1,
+              },
+              {
+                transform: `
+                  translate(
+                    calc(-50% + ${x * 1.3}px),
+                    calc(-50% + ${y * 1.3}px)
+                  )
+                  scale(0)
+                `,
+                opacity: 0,
+              },
+            ],
+            {
+              duration: 1000,
+              easing: "ease-out",
+              fill: "forwards",
+            },
+          );
+
+          container.appendChild(sparkle);
+
+          setTimeout(() => {
+            sparkle.remove();
+          }, 1100);
+        }
+      }
+
+      /* =========================================================
+         BUTTON NAVIGATION
+      ========================================================= */
+
+      const continueButton = document.getElementById("continueButton");
+
+      if (continueButton) {
+        continueButton.addEventListener("click", () => {
+          showSection(2);
+        });
+      }
+
+      const photoContinue = document.getElementById("photoContinue");
+
+      if (photoContinue) {
+        photoContinue.addEventListener("click", () => {
+          showSection(3);
+        });
+      }
+
+      const storyButton = document.getElementById("storyButton");
+
+      if (storyButton) {
+        storyButton.addEventListener("click", () => {
+          if (timelineData.length > 0) {
+            showSection(4);
+          } else {
+            const letterIndex = sections.indexOf(letterScreen);
+
+            showSection(letterIndex);
+          }
+        });
+      }
+
+      const timelineButton = document.getElementById("timelineButton");
+
+      if (timelineButton) {
+        timelineButton.addEventListener("click", () => {
+          const letterIndex = sections.indexOf(letterScreen);
+
+          if (letterIndex !== -1) {
+            showSection(letterIndex);
+          }
+        });
+      }
+
+      const letterButton = document.getElementById("letterButton");
+
+      if (letterButton) {
+        letterButton.addEventListener("click", () => {
+          const interactiveIndex = sections.indexOf(interactiveScreen);
+
+          if (interactiveIndex !== -1) {
+            showSection(interactiveIndex);
+          }
+        });
+      }
+
+      /* =========================================================
+         INTERACTIVE → FINAL
+      ========================================================= */
+
+      function goToFinalReveal() {
+        const finalIndex = sections.indexOf(finalScreen);
+
+        if (finalIndex !== -1) {
+          showSection(finalIndex);
+        }
+      }
+
+      if (interactiveButton) {
+        interactiveButton.addEventListener("click", () => {
+          setTimeout(goToFinalReveal, 2200);
+        });
+      }
+
+      /* =========================================================
+         FINAL UNLOCK
+      ========================================================= */
+
+      const unlockButton = document.getElementById("unlockButton");
+
+      let unlocked = false;
+
+      if (unlockButton) {
+        unlockButton.addEventListener("click", () => {
+          if (unlocked) {
+            return;
+          }
+
+          unlocked = true;
+
+          if (finalMessage) {
+            finalMessage.classList.add("show");
+          }
+
+          const unlockText = unlockButton.querySelector("span:first-child");
+
+          if (unlockText) {
+            unlockText.textContent = "Unlocked";
+          }
+
+          setTimeout(() => {
+            const closingIndex = sections.indexOf(closingScreen);
+
+            if (closingIndex !== -1) {
+              showSection(closingIndex);
+            }
+          }, 2600);
+        });
+      }
+
+      /* =========================================================
+         PHOTO JOURNEY
+      ========================================================= */
+
+      let photoIndex = 0;
+
+      function updatePhotoControls() {
+        if (!previousPhoto || !nextPhoto) {
+          return;
+        }
+
+        if (photos.length <= 1) {
+          previousPhoto.style.display = "none";
+
+          nextPhoto.style.display = "none";
+        } else {
+          previousPhoto.style.display = "";
+
+          nextPhoto.style.display = "";
+        }
+      }
+
+      function renderPhoto() {
+        if (photos.length === 0) {
+          if (journeyPhoto) {
+            journeyPhoto.style.display = "none";
+          }
+
+          if (photoCaption) {
+            photoCaption.textContent =
+              "A story can still begin without a photo.";
+          }
+
+          if (photoCounter) {
+            photoCounter.textContent = "0 / 0";
+          }
+
+          updatePhotoControls();
+
+          return;
+        }
+
+        const photo = photos[photoIndex];
+
+        if (!journeyPhoto) {
+          return;
+        }
+
+        journeyPhoto.style.opacity = "0";
+
+        setTimeout(() => {
+          journeyPhoto.src = photo.image;
+
+          journeyPhoto.alt = photo.caption || "Photo memory";
+
+          if (photoCaption) {
+            photoCaption.textContent = photo.caption || "";
+          }
+
+          if (photoCounter) {
+            photoCounter.textContent = `${photoIndex + 1} / ${photos.length}`;
+          }
+
+          journeyPhoto.style.display = "";
+
+          journeyPhoto.style.opacity = "1";
+        }, 180);
+
+        updatePhotoControls();
+      }
+
+      if (nextPhoto) {
+        nextPhoto.addEventListener("click", () => {
+          if (photos.length <= 1) {
+            return;
+          }
+
+          photoIndex++;
+
+          if (photoIndex >= photos.length) {
+            photoIndex = 0;
+          }
+
+          renderPhoto();
+        });
+      }
+
+      if (previousPhoto) {
+        previousPhoto.addEventListener("click", () => {
+          if (photos.length <= 1) {
+            return;
+          }
+
+          photoIndex--;
+
+          if (photoIndex < 0) {
+            photoIndex = photos.length - 1;
+          }
+
+          renderPhoto();
+        });
+      }
+
+      renderPhoto();
+
+      /* =========================================================
+         MUSIC
+      ========================================================= */
+
+      let backgroundMusic = null;
+      let musicStarted = false;
+
+      function setupMusic() {
+        if (!clientData.music || !clientData.music.trim()) {
+          return;
+        }
+
+        backgroundMusic = new Audio(clientData.music);
+
+        backgroundMusic.loop = true;
+        backgroundMusic.volume = 0.35;
+      }
+
+      function startMusic() {
+        if (!backgroundMusic || musicStarted) {
+          return;
+        }
+
+        backgroundMusic
+          .play()
+          .then(() => {
+            musicStarted = true;
+          })
+          .catch(() => {});
+      }
+
+      setupMusic();
+
+      document.addEventListener("click", startMusic, {
+        once: true,
+      });
+
+      /* =========================================================
+         MAIN NAVIGATION
+      ========================================================= */
+
+      const prevSection = document.getElementById("prevSection");
+
+      const nextSection = document.getElementById("nextSection");
+
+      if (prevSection) {
+        prevSection.addEventListener("click", () => {
+          if (currentIndex > 1) {
+            showSection(currentIndex - 1);
+          }
+        });
+      }
+
+      if (nextSection) {
+        nextSection.addEventListener("click", () => {
+          if (currentIndex < sections.length - 1) {
+            showSection(currentIndex + 1);
+          }
+        });
+      }
+
+      /* =========================================================
+         KEYBOARD
+      ========================================================= */
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          if (currentIndex < sections.length - 1) {
+            showSection(currentIndex + 1);
+          }
+        }
+
+        if (event.key === "ArrowLeft") {
+          if (currentIndex > 1) {
+            showSection(currentIndex - 1);
+          }
+        }
+      });
+
+      /* =========================================================
+         SWIPE
+      ========================================================= */
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      document.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX = event.touches[0].clientX;
+
+          touchStartY = event.touches[0].clientY;
+        },
+        {
+          passive: true,
+        },
+      );
+
+      document.addEventListener(
+        "touchend",
+        (event) => {
+          const touchEndX = event.changedTouches[0].clientX;
+
+          const touchEndY = event.changedTouches[0].clientY;
+
+          const deltaX = touchEndX - touchStartX;
+
+          const deltaY = touchEndY - touchStartY;
+
+          if (currentIndex === 0 && deltaY < -45) {
+            openGift();
+            return;
+          }
+
+          if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+              if (currentIndex < sections.length - 1) {
+                showSection(currentIndex + 1);
+              }
+            } else {
+              if (currentIndex > 1) {
+                showSection(currentIndex - 1);
+              }
+            }
+          }
+        },
+        {
+          passive: true,
+        },
+      );
+
+      /* =========================================================
+         INITIAL STATE
+      ========================================================= */
+
+      if (timelineScreen && timelineData.length === 0) {
+        timelineScreen.style.display = "none";
+      }
+
+      updateNavigation();
+    </script>
+  </body>
+</html>

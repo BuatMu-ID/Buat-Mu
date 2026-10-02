@@ -1,0 +1,169 @@
+/* =========================================================
+   BUATMU — SWEET
+   THEME: DARK
+   ========================================================= */
+
+body.theme-dark {
+  --bg: #0d0d10;
+  --bg-soft: #15151a;
+
+  --card: rgba(27, 27, 33, 0.72);
+  --card-soft: rgba(32, 32, 38, 0.6);
+
+  --cream: #f4eee5;
+  --white: #ffffff;
+
+  --muted: #9b9690;
+  --muted-soft: #716d68;
+
+  --accent: #c8a47e;
+  --accent-soft: rgba(200, 164, 126, 0.14);
+  --accent-glow: rgba(200, 164, 126, 0.24);
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+body.theme-dark {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(105, 77, 51, 0.2), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(77, 63, 51, 0.18), transparent 30%),
+    var(--bg);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+body.theme-dark .opening-card,
+body.theme-dark .letter-card,
+body.theme-dark .ending-card,
+body.theme-dark .photo-card {
+  background: var(--card);
+
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(22px);
+
+  -webkit-backdrop-filter: blur(22px);
+}
+
+/* =========================================================
+   LETTER
+   ========================================================= */
+
+body.theme-dark .letter-card {
+  background: linear-gradient(
+    145deg,
+    rgba(31, 31, 37, 0.84),
+    rgba(19, 19, 23, 0.76)
+  );
+}
+
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+body.theme-dark .ending-card {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(200, 164, 126, 0.14),
+      transparent 45%
+    ),
+    rgba(19, 19, 23, 0.78);
+
+  box-shadow:
+    var(--shadow),
+    0 0 100px rgba(200, 164, 126, 0.12);
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+body.theme-dark .photo-card {
+  background: rgba(27, 27, 33, 0.78);
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+body.theme-dark .btn {
+  color: #15151a;
+
+  background: #f4eee5;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.32);
+}
+
+body.theme-dark .btn:hover {
+  color: #171411;
+
+  background: #c8a47e;
+}
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+body.theme-dark .audio-button {
+  color: var(--cream);
+
+  background: rgba(27, 27, 33, 0.84);
+
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   ORBS
+   ========================================================= */
+
+body.theme-dark .orb-1 {
+  background: rgba(105, 77, 51, 0.3);
+}
+
+body.theme-dark .orb-2 {
+  background: rgba(77, 63, 51, 0.28);
+}
+
+body.theme-dark .orb-3 {
+  background: rgba(54, 48, 43, 0.3);
+}
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+body.theme-dark .particle {
+  background: rgba(247, 241, 231, 0.4);
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+body.theme-dark .navigation {
+  background: rgba(13, 13, 16, 0.72);
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+body.theme-dark .letter-message,
+body.theme-dark .letter-greeting,
+body.theme-dark .letter-signature,
+body.theme-dark .ending-from {
+  color: var(--cream);
+}
